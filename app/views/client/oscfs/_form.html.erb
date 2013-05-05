@@ -1,0 +1,119 @@
+<script type="text/javascript">
+    $(function() {
+    $( "#datepicker" ).datepicker();
+    $( "#datepicker" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
+    $( "#datepicker_1" ).datepicker();
+    $( "#datepicker_1" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
+    $( "#datepicker_2" ).datepicker();
+    $( "#datepicker_2" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
+    });
+</script>
+
+<div class="grid_5">
+  <div class="module">
+  <h2><span>客户考试</span></h2>
+
+    <div class="module-body">
+        <%= form_for([:client, @oscf]) do |f| %>
+          <% if @oscf.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@oscf.errors.count, "error") %> prohibited this oscf from being saved:</h2>
+
+              <ul>
+              <% @oscf.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <%= f.hidden_field :user_id, :value => "#{current_user.id}" %>
+          <div class="field">
+            <%= f.label :stu_id, "学生编号"%><br />
+            <%= f.number_field :stu_id, :class => "input-medium validate[required, custom[number]]" %>
+          </div>
+          <div class="field">
+            <%= f.label :name, "学生姓名"%><br />
+            <%= f.text_field :name, :class => "input-medium validate[required]"  %>
+          </div>
+          <div class="field">
+            <%= f.label :gender, "性别" %><br />
+            <%= f.select(:gender, [["男",0],["女",1]]) %>
+          </div>
+          <div class="field">
+            <%= f.label :school, "学校" %><br />
+            <%= f.text_field :school %>
+          </div>
+          <div class="field">
+            <%= f.label :goal_score, "目标分数" %><br />
+            <%= f.number_field :goal_score, :class => "input-medium validate[custom[integer]]" %>
+          </div>
+          <div class="field">
+            <%= f.label :previous_marks_exams, "历次考试分数和考试时间" %><br />
+            <%= f.text_area :previous_marks_exams %>
+          </div>
+          <div class="field">
+            <%= f.label :learn_subject, "学习科目" %><br />
+            <%= f.text_field :learn_subject %>
+          </div>
+          <div class="field">
+            <%= f.label :learn_time, "学习时长" %><br />
+            <%= f.text_field :learn_time %>
+          </div>
+          <div class="field">
+            <%= f.label :learn_remark_pm, "学习情况反馈PM" %><br />
+            <%= f.text_area :learn_remark_pm %>
+          </div>
+          <div class="field">
+            <%= f.label :learn_remark_tearcher, "学习反馈Teachers" %><br />
+            <%= f.text_field :learn_remark_tearcher %>
+          </div>
+          <div class="field">
+            <%= f.label :post_class_score, "课后单词成绩纪录" %><br />
+            <%= f.number_field :post_class_score %>
+          </div>
+          <div class="field">
+            <%= f.label :mock_score, "模拟成绩纪录" %><br />
+            <%= f.number_field :mock_score %>
+          </div>
+          <div class="field">
+            <%= f.label :comm_date, "与家长沟通时间" %><br />
+            <input type="text" id="datepicker" name="oscf[comm_date]" />
+          </div>
+          <div class="field">
+            <%= f.label :comm_content, "沟通内容" %><br />
+            <%= f.text_area :comm_content %>
+          </div>
+          <div class="field">
+            <%= f.label :comm_effect, "沟通效果" %><br />
+            <%= f.text_field :comm_effect %>
+          </div>
+          <div class="field">
+            <%= f.label :forcast_come_time, "预期到访时间" %><br />
+            <input type="text" id="datepicker_1" name="oscf[forcast_come_time]" />
+          </div>
+          <div class="field">
+            <%= f.label :actual_come_time, "实际到访时间" %><br />
+            <input type="text" id="datepicker_2" name="oscf[actual_come_time]" />
+          </div>
+          <div class="field">
+            <%= f.label :forcast_fee, "预期费用" %><br />
+            <%= f.number_field :forcast_fee %>
+          </div>
+          <div class="field">
+            <%= f.label :actual_fee, "实际费用" %><br />
+            <%= f.number_field :actual_fee %>
+          </div>
+
+          <fieldset>
+              <input class="submit-green" type="submit" value="Submit" /> 
+              <input class="submit-gray" type="reset" value="Cancel" />
+          </fieldset> 
+
+          <% end %>
+        </div>
+        </div> <!-- End .module-body -->
+    </div> <!-- End .module -->
+  <div style="clear:both;"></div>
+</div> <!-- End .grid_6 -->
+<div style="clear:both;"></div>

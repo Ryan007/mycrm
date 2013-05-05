@@ -1,0 +1,80 @@
+        <!-- Initiate tablesorter script -->
+        <script type="text/javascript">
+            $(document).ready(function() { 
+                $("#myTable") 
+                .tablesorter({
+                    // zebra coloring
+                    widgets: ['zebra'],
+                    // pass the headers argument and assing a object 
+                    headers: { 
+                        // assign the sixth column (we start counting zero) 
+                        6: { 
+                            // disable it by setting the property sorter to false 
+                            sorter: false 
+                        } 
+                    }
+                });
+            //.tablesorterPager({container: $("#pager")}); 
+        }); 
+        </script>
+
+<div class="grid_12">
+
+    <div class="bottom-spacing">
+
+        <!-- Button -->
+        <div class="float-left">
+            <a href="<%= new_client_info_session_path %>" class="button">
+              <span>新建对话<img src="<%= Xmcrm::Application.config.staticfile_server_url %>admin_style/images/plus-small.gif" width="12" height="9" alt="New sessions" /></span>
+            </a>
+        </div>
+
+    </div>
+
+    <div class="module">
+        <h2><span>角色管理</span></h2>
+
+        <div class="module-table-body">
+
+            <table id="myTable" class="tablesorter">
+              <thead>
+                    <tr>
+                        <th style="width:5%">ID</th>
+                        <th style="width:5%">会话类型</th>
+                        <th style="width:5%">发起人</th>
+                        <th style="width:5%">客户姓名</th>
+                        <th style="width:12%">会话时间</th>
+                        <th style="width:12%">创建日期</th>
+                        <th style="width:12%">最后更新</th>
+                        <th style="width:20%">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @sessions.each do |session| %>
+                    <tr>
+                        <td class="align-center"><%= link_to session.id, client_info_session_path(@info, session)%></td>
+                        <td><%= session.session_type.name %></td>
+                        <td><%= session.user.username %></td>
+                        <td><%= session.info.name %></td>
+                        <td><%= session.session_time.strftime('%Y-%m-%d %H:%M') %></td>
+                        <td><%= session.created_at.strftime('%Y-%m-%d %H:%M') %></td>
+                        <td><%= session.updated_at.strftime('%Y-%m-%d %H:%M') %></td>
+                        <td>
+                          <%= link_to "编辑", edit_client_info_session_path(@info, session) %> |
+                          <%= link_to "删除", client_info_session_path(@info, session), :method => :delete, :confirm => 
+                          "你确定要删除此渠道?" %> |
+                          <%= link_to "内容", client_info_session_records_path(@info, session)%>
+                        </td>
+                    </tr> 
+                    <% end %>                             
+                </tbody>
+            </table>
+            
+            <div style="clear: both"></div>
+        </div> <!-- End .module-table-body -->
+    </div> <!-- End .module -->
+    <div class="apple_pagination">
+        <%=h will_paginate @sessions, :previous_label => '上一页',  :next_label => '下一页'%>
+    </div>
+</div> <!-- End .grid_12 -->
+<div style="clear: both"></div>

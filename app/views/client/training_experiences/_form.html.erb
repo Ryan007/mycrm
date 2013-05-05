@@ -1,0 +1,58 @@
+<script type="text/javascript">
+    $(function() {
+    $( "#datepicker" ).datepicker();
+    $( "#datepicker" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
+    $( "#datepicker_2" ).datepicker();
+    $( "#datepicker_2" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
+    });
+</script>
+
+<div class="grid_5">
+  <div class="module">
+  <h2><span>培训经历</span></h2>
+
+    <div class="module-body">
+        <%= form_for([:client, @info, @training_experience]) do |f| %>          
+          <p>
+            <label>考试类型</label>
+            <%= f.select(:exam_type_id,  ExamType.all.collect { |p| [p.name, p.id]})%>
+          </p>
+
+          <%= f.hidden_field :user_id, :value => "#{current_user.id}" %>
+
+          <%= f.hidden_field :info_id, :value => "#{@info.id}" %>
+
+          <p>
+            <label>开始时间</label>
+            <input type="text" id="datepicker" name="training_experience[start_time]" />
+          </p>
+
+          <p>
+            <label>结束时间</label>
+            <input type="text" id="datepicker_2" name="training_experience[finish_time]" />
+          </p>
+
+          <p>
+              <%= f.label :training_institutions,'培训机构' %><br />
+              <%= f.text_field :training_institution_list, :size=>'60' %>*多个标签以","隔开
+          </p>
+
+          <p>
+            <label>培训时长</label>
+            <%= f.text_field :total_time, :class => "input-medium validate[required]" %>
+          </p>
+
+          <fieldset>
+              <input class="submit-green" type="submit" value="Submit" /> 
+              <input class="submit-gray" type="reset" value="Cancel" />
+          </fieldset> 
+
+          <% end %>
+        </div>
+        </div> <!-- End .module-body -->
+    </div> <!-- End .module -->
+  <div style="clear:both;"></div>
+</div> <!-- End .grid_6 -->
+<div style="clear:both;"></div>
+
+

@@ -1,0 +1,284 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>Xmcrm</title>
+       
+        <!-- CSS Reset -->
+		<link rel="stylesheet" type="text/css" href="<%= Xmcrm::Application.config.staticfile_server_url %>admin_style/style/reset.css" media="screen" />      
+        <!-- Fluid 960 Grid System - CSS framework -->
+		<link rel="stylesheet" type="text/css" href="<%= Xmcrm::Application.config.staticfile_server_url %>admin_style/style/grid.css" media="screen" />
+        <!-- jquery UI -->
+        <link rel="stylesheet" href="<%= Xmcrm::Application.config.staticfile_server_url %>jquery/south-street/jquery-ui-1.8.18.custom.css" type="text/css"/>
+
+        <link rel="stylesheet" href="<%= Xmcrm::Application.config.staticfile_server_url %>info.css" type="text/css"/>
+		
+        <!-- IE Hacks for the Fluid 960 Grid System -->
+        <!--[if IE 6]>
+        <link rel="stylesheet" type="text/css" href="<%= Xmcrm::Application.config.staticfile_server_url %>admin_style/style/ie6.css" tppabs="http://www.xooom.pl/work/magicadmin/css/ie6.css" media="screen" />
+        <![endif]-->
+		<!--[if IE 7]>
+        <link rel="stylesheet" type="text/css" href="<%= Xmcrm::Application.config.staticfile_server_url %>admin_style/style/ie.css" tppabs="http://www.xooom.pl/work/magicadmin/css/ie.css" media="screen" />
+        <![endif]-->
+        
+        <!-- Main stylesheet -->
+        <link rel="stylesheet" type="text/css" href="<%= Xmcrm::Application.config.staticfile_server_url %>admin_style/style/styles.css" media="screen" />        
+        <!-- WYSIWYG editor stylesheet -->
+        <link rel="stylesheet" type="text/css" href="<%= Xmcrm::Application.config.staticfile_server_url %>admin_style/style/jquery.wysiwyg.css" media="screen" />
+        <!-- Table sorter stylesheet -->
+        <link rel="stylesheet" type="text/css" href="<%= Xmcrm::Application.config.staticfile_server_url %>admin_style/style/tablesorter.css" media="screen" />
+        <!-- Thickbox stylesheet -->
+        <link rel="stylesheet" type="text/css" href="<%= Xmcrm::Application.config.staticfile_server_url %>admin_style/style/thickbox.css" media="screen" />
+        <!-- Themes. Below are several color themes. Uncomment the line of your choice to switch to different color. All styles commented out means blue theme. -->
+        <link rel="stylesheet" type="text/css" href="<%= Xmcrm::Application.config.staticfile_server_url %>admin_style/style/theme-blue.css" media="screen" />
+        <link rel="stylesheet" href="<%= Xmcrm::Application.config.staticfile_server_url %>jquery/fullcalendar/fullcalendar.css" type="text/css"/>
+        <link rel="stylesheet" href="<%= Xmcrm::Application.config.staticfile_server_url %>jquery/validation/validationEngine.jquery.css" type="text/css"/>
+        <link rel="stylesheet" href="<%= Xmcrm::Application.config.staticfile_server_url %>jquery/fullcalendar/fullcalendar.print.css" type="text/css" media='print'/>
+        <link rel="stylesheet" href="<%= Xmcrm::Application.config.staticfile_server_url %>jquery/fullcalendar/cupertino/theme.css" type="text/css" media='print'/>
+        
+        
+		<!-- JQuery engine script-->
+		<script type="text/javascript" src="<%= Xmcrm::Application.config.staticfile_server_url %>jquery/jquery_1.7.1.min.js"></script>
+        <script type="text/javascript" src="<%= Xmcrm::Application.config.staticfile_server_url %>jquery/jquery-ui-1.8.18.custom.min.js"></script>
+		<script type="text/javascript" src="<%= Xmcrm::Application.config.staticfile_server_url %>jquery_ujs.js"></script>      
+		<!-- JQuery WYSIWYG plugin script -->
+		<script type="text/javascript" src="<%= Xmcrm::Application.config.staticfile_server_url %>admin_style/js/jquery.wysiwyg.js"></script>
+        <!-- JQuery tablesorter plugin script-->
+		<script type="text/javascript" src="<%= Xmcrm::Application.config.staticfile_server_url %>admin_style/js/jquery.tablesorter.min.js"></script>
+		<!-- JQuery pager plugin script for tablesorter tables -->
+		<script type="text/javascript" src="<%= Xmcrm::Application.config.staticfile_server_url %>admin_style/js/jquery.tablesorter.pager.js"></script>
+        <script src="<%= Xmcrm::Application.config.staticfile_server_url %>jquery/validation/languages/jquery.validationEngine-zh_CN.js" type="text/javascript" charset="utf-8"></script>
+        <script src="<%= Xmcrm::Application.config.staticfile_server_url %>jquery/validation/jquery.validationEngine.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript" src="<%= Xmcrm::Application.config.staticfile_server_url %>jquery/jquery.ui.datepicker-zh-CN.js"></script>
+        <script type="text/javascript" src="<%= Xmcrm::Application.config.staticfile_server_url %>jquery/jquery-ui-timepicker-addon.js"></script>
+        <script type="text/javascript" src="<%= Xmcrm::Application.config.staticfile_server_url %>jquery/fullcalendar/fullcalendar.min.js"></script>
+        <script type="text/javascript" src="<%= Xmcrm::Application.config.staticfile_server_url %>jquery/collapse/jquery.collapse.js"></script>
+        <script type="text/javascript" src="<%= Xmcrm::Application.config.staticfile_server_url %>jquery/collapse/jquery.collapse_storage.js"></script>
+        <script type="text/javascript" src="<%= Xmcrm::Application.config.staticfile_server_url %>jquery/collapse/jquery.collapse_cookie_storage.js"></script>
+  
+        <%= csrf_meta_tags %>
+	</head>
+	<body>
+    	<!-- Header -->
+        <div id="header">
+            <!-- Header. Status part -->
+            <div id="header-status">
+                <div class="container_12">
+                    <div class="grid_8">
+                        <% if user_signed_in? %>
+                        您好,<%= current_user.username %>
+                        <% else %>
+                        <%= link_to "[登录]", new_user_session_path, :method => :get %> |
+                        <%= link_to "[注册]", "/users/sign_up", :method => :get %>
+                        <% end %>
+                    </div>
+                    <div class="grid_4">
+                    	<% if user_signed_in? %>
+                    	<%= link_to "Logout", destroy_user_session_path, :method => :delete ,:id => "logout"%>
+                        <% end %>
+                    </div>
+                </div>
+                <div style="clear:both;"></div>
+            </div> <!-- End #header-status -->
+            
+            <!-- Header. Main part -->
+            <div id="header-main">
+                <div class="container_12">
+                    <div class="grid_12">
+                        <div id="logo">
+                            <% if user_signed_in? %>
+                            <ul id="nav">
+                                <li id="<%= @resource_name == 'Dashboard' ? 'current' : ''%>"><a href="/">工作台</a></li>
+                                <li id="<%= @resource_name == 'Marketing' ? 'current' : ''%>"><%= link_to "市场", marketing_root_path %></li>
+                                <li id="<%= @resource_name == 'Client' ? 'current' : ''%>"><%= link_to "客户", client_root_path %></li>
+                                <li id="<%= @resource_name == 'Admin' ? 'current' : ''%>"><%= link_to "管理", admin_root_path %></li>
+                            </ul>
+                            <% end %>
+                        </div><!-- End. #Logo -->
+                    </div><!-- End. .grid_12-->
+                    <div style="clear: both;"></div>
+                </div><!-- End. .container_12 -->
+            </div> <!-- End #header-main -->
+            <div style="clear: both;"></div>
+
+            <% if @resource_name == 'Admin' && user_signed_in? %>
+            <!-- Sub navigation -->
+            <div id="subnav">
+                <div class="container_12">
+                    <div class="grid_12">
+                        <ul>
+                            <li><%= link_to "用户管理", admin_users_path %></li>
+                            <% if current_user.roles.include?(Role.find(1))%>
+                            <li><%= link_to "角色管理", admin_roles_path %></li>
+                            <li><%= link_to "数据管理", admin_analytic_index_path %></li>
+                            <% end %>
+                            <li><%= link_to "权限管理", admin_permissions_path %></li>
+                        </ul>
+                        
+                    </div><!-- End. .grid_12-->
+                </div><!-- End. .container_12 -->
+                <div style="clear: both;"></div>
+            </div> <!-- End #subnav -->
+            <% end %>
+
+            <% if @resource_name == 'Marketing' && user_signed_in? %>
+            <!-- Sub navigation -->
+            <div id="subnav">
+                <div class="container_12">
+                    <div class="grid_12">
+                        <ul>
+                            <li>
+                                <%= link_to "渠道分类", marketing_channel_categories_path %>
+                            </li>
+
+                            <li>
+                                <%= link_to "渠道", marketing_channel_infos_path %>
+                            </li>
+                        </ul>
+                        
+                    </div><!-- End. .grid_12-->
+                </div><!-- End. .container_12 -->
+                <div style="clear: both;"></div>
+            </div> <!-- End #subnav -->
+            <% end %>
+            
+            <% if @resource_name == 'Client' && user_signed_in? %>
+            <!-- Sub navigation -->
+            <div id="subnav">
+                <div class="container_12">
+                    <div class="grid_12">
+                        <ul>
+
+                            <li>
+                                <% if current_user.roles.include?(Role.find(1)) || current_user.roles.include?(Role.find(4)) || current_user.roles.include?(Role.find(5))%>
+                                    <%= link_to "客户信息", client_infos_path %>
+                                <% end %>
+                            </li>
+
+                            <li>
+                                <% if current_user.roles.include?(Role.find(1))%>
+                                    <%= link_to "性格类别", client_character_types_path %>
+                                <% end %>
+                            </li>
+
+                            <li>
+                                <% if current_user.roles.include?(Role.find(1))%>
+                                    <%= link_to "查看地区", client_common_districts_path %>
+                                <% end %>
+                            </li>
+
+                            <li>
+                                <% if current_user.roles.include?(Role.find(1))%>
+                                    <%= link_to "报考院校", client_apply_colleages_path %>
+                                <% end %>
+                            </li>
+
+                            <li>
+                                <% if current_user.roles.include?(Role.find(1))%>
+                                    <%= link_to "对话分类", client_session_types_path %>
+                                <% end %>
+                            </li>
+
+                            <li>
+                                <% if current_user.roles.include?(Role.find(1))%>
+                                    <%= link_to "考试分类", client_exam_types_path %>
+                                <% end %>
+                            </li>
+
+                            <li>
+                                <% if current_user.roles.include?(Role.find(1)) || current_user.roles.include?(Role.find(5))%>
+                                    <%= link_to "预约管理", invit_index_client_infos_path %>
+                                <% end %>
+                            </li>
+
+                            <% if current_user.roles.include?(Role.find(3))%>
+                                <li>
+                                    <%= link_to "我的客户", cc_my_client_infos_path %>
+                                </li>
+
+                                <li>
+                                    <%= link_to "新学员续费管理", client_nsfms_path%>
+                                </li>
+
+                                <li>
+                                    <%= link_to "老学员跟进管理", client_oscfs_path %>
+                                </li>
+
+                                <li>
+                                    <%= link_to "未报名学员跟进管理", client_nssrs_path%>
+                                </li>
+                            <% end %>
+                            <% if current_user.roles.include?(Role.find(1))%>
+                                <li>
+                                    <%= link_to "新学员续费管理", all_client_nsfms_path%>
+                                </li>
+
+                                <li>
+                                    <%= link_to "老学员跟进管理", all_client_oscfs_path %>
+                                </li>
+
+                                <li>
+                                    <%= link_to "未报名学员跟进管理", all_client_nssrs_path%>
+                                </li>
+                            <% end %>
+
+                            <li>
+                                <% if current_user.roles.include?(Role.find(2)) || current_user.roles.include?(Role.find(8))%>
+                                    <%= link_to "我的客户", channel_my_client_infos_path %>
+                                <% end %>
+                            </li>
+
+                            <li>
+                                <% if current_user.roles.include?(Role.find(7))%>
+                                    <%= link_to "CallCenter", callcenter_index_client_infos_path %>
+                                <% end %>
+                            </li>
+
+                        </ul>
+                        
+                    </div><!-- End. .grid_12-->
+                </div><!-- End. .container_12 -->
+                <div style="clear: both;"></div>
+            </div> <!-- End #subnav -->
+            <% end %>
+            
+        </div> <!-- End #header -->
+        
+		<div class="container_12">
+        	<div class="grid_12">
+				<!-- devise的提示信息 start -->
+			
+				<% if flash[:notice] %>
+				<span class="notification n-information"><%= notice %></span>
+				<% end %>
+				<% if flash[:alert] %>
+				<span class="notification n-attention"><%= alert %></span>
+				<% end %>
+				<% if flash[:error] %>
+				<span class="notification n-error"><%= flash[:error] %></span>
+				<% end %>
+				<% if flash[:success] %>
+				<span class="notification n-success"><%= flash[:success] %></span>
+				<% end %>
+				<!-- devise的提示信息 end -->
+			</div><!-- End .grid_12 -->
+	        <div style="clear:both;"></div>
+	        <%= yield %>
+            
+        </div> <!-- End .container_12 -->
+		
+           
+        <!-- Footer -->
+        <div id="footer">
+        	<div class="container_12">
+            	<div class="grid_12">
+                	<!-- You can change the copyright line for your own -->
+                	<p>&copy; 2012. <a href="http://www.xiaoma.com" target="_blank" title="小马过河国际教育">小马过河国际教育</a>
+                		Powered by <a href="http://rubyonrails.org/" target="_blank">Ruby On Rails</a>
+                	</p>
+        		</div>
+            </div>
+            <div style="clear:both;"></div>
+        </div> <!-- End #footer -->
+	</body>
+</html>

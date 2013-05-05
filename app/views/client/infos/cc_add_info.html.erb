@@ -1,0 +1,25 @@
+<script type="text/javascript" charset="utf-8">
+  jQuery(document).ready(function(){
+    // binds form submission and fields to the validation engine
+    jQuery("#new_info").validationEngine();
+  });
+
+</script>       
+<div class="grid_12">
+  <div class="bottom-spacing">
+      <% if current_user.roles.include?(Role.find(3))%>
+      <div class="float-left">
+          <a href="<%= cc_my_client_infos_path %>" class="button">
+            <span>返回</span>
+          </a>
+      </div>
+      <% else %>
+      <div class="float-left">
+          <a href="<%= client_infos_path %>" class="button">
+            <span>返回</span>
+          </a>
+      </div>
+      <% end %>      
+  </div>
+</div>
+<%= render 'form' %>

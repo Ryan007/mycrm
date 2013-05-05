@@ -1,0 +1,136 @@
+<div class="grid_12">
+    <div class="bottom-spacing">
+        <% if current_user.roles.include?(Role.find(1))%>
+        <a href="<%= all_client_nsfms_path %>" class="button">
+          <span>返回</span>
+        </a>
+        <% else %>
+        <a href="<%= client_nsfms_path %>" class="button">
+          <span>返回</span>
+        </a>
+        <% end %>
+    </div>
+</div>
+<div class="grid_5">
+
+    <div class="module">
+         <h2><span>新学员续费管理</span></h2>
+
+         <div class="module-body">
+            <p>
+              <b>所属用户:</b>
+              <%= @nsfm.user.username %>
+            </p>
+
+            <p>
+              <b>学生编号:</b>
+              <%= @nsfm.stu_id %>
+            </p>
+
+            <p>
+              <b>报名日期:</b>
+              <%= @nsfm.date_application %>
+            </p>
+
+            <p>
+              <b>状态:</b>
+              <%= @nsfm.status %>
+            </p>
+
+            <p>
+              <b>名字:</b>
+              <%= @nsfm.name %>
+            </p>
+
+            <p>
+              <b>年龄:</b>
+              <%= @nsfm.age %>
+            </p>
+
+            <p>
+              <b>学校:</b>
+              <%= @nsfm.school %>
+            </p>
+
+            <p>
+              <b>年级:</b>
+              <%= @nsfm.grade %>
+            </p>
+
+            <p>
+              <b>考试目标:</b>
+              <%= @nsfm.goal_score %>
+            </p>
+
+            <p>
+              <b>学习天数:</b>
+              <%= @nsfm.learn_days %>
+            </p>
+
+            <p>
+              <b>学费 :</b>
+              <%= @nsfm.fee %>
+            </p>
+
+            <p>
+              <b>历次考试分数和考试时间:</b>
+              <%= @nsfm.previous_marks_exams %>
+            </p>
+
+            <p>
+              <b>报名学习天数:</b>
+              <%= @nsfm.study_days %>
+            </p>
+
+            <p>
+              <b>报名费用:</b>
+              <%= @nsfm.application_fee %>
+            </p>
+
+            <p>
+              <b>预期1st续费时间:</b>
+              <%= @nsfm.forcast_1st_date %>
+            </p>
+
+            <p>
+              <b>预期1st续费金额:</b>
+              <%= @nsfm.forcast_1st_fee %>
+            </p>
+
+            <p>
+              <b>实际1st续费时间:</b>
+              <%= @nsfm.actual_1st_date %>
+            </p>
+
+            <p>
+              <b>实际1st续费金额:</b>
+              <%= @nsfm.actual_1st_fee %>
+            </p>
+
+            <p>
+              <b>预期2nd续费时间:</b>
+              <%= @nsfm.forcast_2nd_date %>
+            </p>
+
+            <p>
+              <b>预期2nd续费金额</b>
+              <%= @nsfm.forcast_2nd_fee %>
+            </p>
+
+            <p>
+              <b>实际2nd续费时间:</b>
+              <%= @nsfm.actual_2nd_date %>
+            </p>
+
+            <p>
+              <b>实际2nd续费金额:</b>
+              <%= @nsfm.actual_2nd_fee %>
+            </p>
+
+         </div> <!-- End .module-body -->
+    </div> <!-- End .module -->
+    <div style="clear:both;"></div>
+</div> <!-- End .grid_6 -->
+<div style="clear:both;"></div>
+
+

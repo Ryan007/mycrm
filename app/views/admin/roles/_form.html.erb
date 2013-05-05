@@ -1,0 +1,39 @@
+                <div class="grid_5">
+                <div class="module">
+                     <h2><span>角色管理</span></h2>
+                        
+                     <div class="module-body">
+                        <%= form_for([:admin, @role]) do |f| %>
+                          <% if @role.errors.any? %>
+                            <div id="error_explanation">
+                              <h2><%= pluralize(@role.errors.count, "error") %> prohibited this role from being saved:</h2>
+
+                              <ul>
+                              <% @role.errors.full_messages.each do |msg| %>
+                                <li><%= msg %></li>
+                              <% end %>
+                              </ul>
+                            </div>
+                            
+                          <% end %>
+                        
+                            <p>
+                                <label>角色名</label>
+                                <%= f.text_field :rolename , :class => "input-medium validate[required,minSize[2],maxSize[30]" %>
+                            </p>
+                            <p>
+                                <label>角色描述</label>
+                                <%= f.text_field :roledesc %>
+                            </p>
+
+                            <fieldset>
+                                <input class="submit-green" type="submit" value="Submit" /> 
+                                <input class="submit-gray" type="submit" value="Cancel" />
+                            </fieldset>
+                        <% end %>
+                        
+                     </div> <!-- End .module-body -->
+                </div> <!-- End .module -->
+                <div style="clear:both;"></div>
+            </div> <!-- End .grid_6 -->
+            <div style="clear:both;"></div>

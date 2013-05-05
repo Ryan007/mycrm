@@ -1,0 +1,40 @@
+<div class="grid_5">
+  <div class="module">
+  <h2><span>会话内容</span></h2>
+
+    <div class="module-body">
+        <%= form_for([:client, @info, @exam, @exam_detail]) do |f| %>
+
+          <%= f.hidden_field :exam_id, :value => "#{@exam.id}" %>
+
+          <p>
+            <label>听力</label>
+            <%= f.number_field :listening, :class => "input-medium validate[required]" %>
+          </p>
+          <p>
+            <label>阅读</label>
+            <%= f.number_field :reading, :class => "input-medium validate[required]" %>
+          </p>
+          <p>
+            <label>写作</label>
+            <%= f.number_field :writing, :class => "input-medium validate[required]" %>
+          </p>
+          <p>
+            <label>口语</label>
+            <%= f.number_field :oral, :class => "input-medium validate[required]" %>
+          </p>
+
+          <fieldset>
+              <input class="submit-green" type="submit" value="Submit" /> 
+              <input class="submit-gray" type="reset" value="Cancel" />
+          </fieldset> 
+
+          <% end %>
+        </div>
+        </div> <!-- End .module-body -->
+    </div> <!-- End .module -->
+  <div style="clear:both;"></div>
+</div> <!-- End .grid_6 -->
+<div style="clear:both;"></div>
+
+

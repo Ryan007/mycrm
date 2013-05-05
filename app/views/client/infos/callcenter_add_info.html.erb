@@ -1,0 +1,90 @@
+<script type="text/javascript" charset="utf-8">
+  jQuery(document).ready(function(){
+    // binds form submission and fields to the validation engine
+    jQuery("#new_info").validationEngine();
+    $("form").submit(function(){
+      if($("#info_source").val()==""){
+        alert("请选择客户来源方式！");
+      $("#info_source").focus();
+        return false;
+      }
+    })
+  });
+  function get_options(value){
+    if(value==0){
+      $("#not_validate").css("display","block");
+    }
+    if(value==1){
+      $("#not_validate").css("display","none");
+    }
+  }
+</script>
+
+<div class="grid_5">
+  <div class="float-left">
+      <a href="<%= callcenter_index_client_infos_path %>" class="button">
+        <span>返回</span>
+      </a>
+  </div>
+  <div class="module">
+    <h2><span>创建客户</span></h2>
+    <div class="module-body">
+        <%= form_for([:client, @info]) do |f| %>
+          <% if @info.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@info.errors.count, "error") %> prohibited this info from being saved:</h2>
+
+              <ul>
+              <% @info.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <hr />
+
+          <p>
+            <label>客户来源</label>
+            <%= f.select(:source, [["呼入",1],["呼出",2],["乐语",3]], :include_blank => true, :class => "input-medium validate[required]")%>
+          </p>
+
+          <p>
+            <label>客户名称</label>
+            <%= f.text_field :name, :class => "input-medium validate[required]" %>
+          </p>
+
+          <%= f.hidden_field :user_id, :value => "#{current_user.id}"%>
+          <%= f.hidden_field :is_signed, :value => "2"%>
+          <%= f.hidden_field :is_examed, :value => "2"%>
+          <%= f.hidden_field :is_trained, :value => "2"%>
+          <%= f.hidden_field :call_id, :value => "#{current_user.id}"%>
+
+          <p>
+            <label>客户电话</label>
+            <%= f.text_field :cellphone, :class => "input-medium validate[required, custom[phone]]" %>
+          </p>
+
+          <p>
+            <label>是否有效</label>
+            <%= f.select(:is_validate, [['有效', 1],['无效',0]],{:class => "input-medium validate[required]"}, :onchange => "get_options(this.value)") %>
+          </p>
+
+          <p id="not_validate" style="display:none;">
+            <label>无效原因</label>
+            <%= f.text_area :not_validate_reasion, :class => "input-medium validate[required]" %>
+          </p>
+
+          <fieldset>
+              <input class="submit-green" type="submit" value="Submit" /> 
+              <input class="submit-gray" type="submit" value="Cancel" />
+          </fieldset>
+
+        <% end %>
+
+        </div>
+        </div> <!-- End .module-body -->
+    </div> <!-- End .module -->
+  <div style="clear:both;"></div>
+</div> <!-- End .grid_6 -->
+<div style="clear:both;"></div>

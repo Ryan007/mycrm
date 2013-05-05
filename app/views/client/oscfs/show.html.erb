@@ -1,0 +1,124 @@
+<div class="grid_12">
+    <div class="bottom-spacing">
+        <% if current_user.roles.include?(Role.find(1))%>
+        <a href="<%= all_client_oscfs_path %>" class="button">
+          <span>返回</span>
+        </a>
+        <% else %>
+        <a href="<%= client_oscfs_path %>" class="button">
+          <span>返回</span>
+        </a>
+        <% end %>
+    </div>
+</div>
+<div class="grid_5">
+
+    <div class="module">
+         <h2><span>新学员续费管理</span></h2>
+
+         <div class="module-body">
+            <p>
+              <b>所属用户:</b>
+              <%= @oscf.user.username %>
+            </p>
+
+            <p>
+              <b>学生编号:</b>
+              <%= @oscf.stu_id %>
+            </p>
+
+            <p>
+              <b>姓名:</b>
+              <%= @oscf.name %>
+            </p>
+
+            <p>
+              <b>性别:</b>
+              <%= @oscf.gender == 0 ? "男" : "女" %>
+            </p>
+
+            <p>
+              <b>学校:</b>
+              <%= @oscf.school %>
+            </p>
+
+            <p>
+              <b>目标分数:</b>
+              <%= @oscf.goal_score %>
+            </p>
+
+            <p>
+              <b>历次考试分数和考试时间:</b>
+              <%= @oscf.previous_marks_exams %>
+            </p>
+
+            <p>
+              <b>学习科目:</b>
+              <%= @oscf.learn_subject %>
+            </p>
+
+            <p>
+              <b>学习时长:</b>
+              <%= @oscf.learn_time %>
+            </p>
+
+            <p>
+              <b>学习情况反馈PM:</b>
+              <%= @oscf.learn_remark_pm %>
+            </p>
+
+            <p>
+              <b>学习反馈Teachers:</b>
+              <%= @oscf.learn_remark_tearcher %>
+            </p>
+
+            <p>
+              <b>课后单词成绩纪录:</b>
+              <%= @oscf.post_class_score %>
+            </p>
+
+            <p>
+              <b>模拟成绩纪录:</b>
+              <%= @oscf.mock_score %>
+            </p>
+
+            <p>
+              <b>与家长沟通时间:</b>
+              <%= @oscf.comm_date %>
+            </p>
+
+            <p>
+              <b>沟通内容:</b>
+              <%= @oscf.comm_content %>
+            </p>
+
+            <p>
+              <b>沟通效果:</b>
+              <%= @oscf.comm_effect %>
+            </p>
+
+            <p>
+              <b>预期到访时间:</b>
+              <%= @oscf.forcast_come_time %>
+            </p>
+
+            <p>
+              <b>实际到访时间:</b>
+              <%= @oscf.actual_come_time %>
+            </p>
+
+            <p>
+              <b>预测费用:</b>
+              <%= @oscf.forcast_fee %>
+            </p>
+
+            <p>
+              <b>实际费用</b>
+              <%= @oscf.actual_fee %>
+            </p>
+
+         </div> <!-- End .module-body -->
+    </div> <!-- End .module -->
+    <div style="clear:both;"></div>
+</div> <!-- End .grid_6 -->
+<div style="clear:both;"></div>

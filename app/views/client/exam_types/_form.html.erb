@@ -1,0 +1,30 @@
+<div class="grid_5">
+  <div class="module">
+  <h2><span>考试类型</span></h2>
+
+    <div class="module-body">
+        <%= form_for([:client, @exam_type]) do |f| %>
+          <p>
+            <label>分类名称</label>
+            <%= f.text_field :name, :class => "input-medium validate[required,minSize[2],maxSize[30],custom[onlyLetterNumber]]" %>
+          </p>
+
+          <p>
+            <label>描述</label>
+            <%= f.text_area :description %>
+          </p>
+
+          <fieldset>
+              <input class="submit-green" type="submit" value="Submit"ss /> 
+              <input class="submit-gray" type="submit" value="Cancel" />
+          </fieldset>
+
+          <% end %>
+        </div>
+        </div> <!-- End .module-body -->
+    </div> <!-- End .module -->
+  <div style="clear:both;"></div>
+</div> <!-- End .grid_6 -->
+<div style="clear:both;"></div>
+
+  

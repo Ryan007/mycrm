@@ -1,0 +1,25 @@
+<div class="grid_12">
+    <div class="bottom-spacing">
+        <a href="<%= client_info_invations_path %>" class="button">
+          <span>返回</span>
+        </a>
+    </div>
+</div>
+<div class="grid_5">
+
+    <div class="module">
+         <h2><span>预约</span></h2>
+
+         <div class="module-body">
+            <p>
+        <div>预约客户:<%= @invation.info.name %></div>
+      </p>
+      <p>
+        <div>预约时间:<%= @invation.invit_time.strftime('%Y-%m-%d %H:%M')  %></div>
+      </p>
+
+         </div> <!-- End .module-body -->
+    </div> <!-- End .module -->
+    <div style="clear:both;"></div>
+</div> <!-- End .grid_6 -->
+<div style="clear:both;"></div>

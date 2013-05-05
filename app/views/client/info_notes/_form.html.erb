@@ -1,0 +1,30 @@
+<div class="grid_5">
+  <div class="module">
+  <h2><span>添加备注</span></h2>
+
+    <div class="module-body">
+        <%= form_for([:client, @info, @info_note]) do |f| %>
+
+          <%= f.hidden_field :cc_id, :value => "#{current_user.id}" %>
+
+          <%= f.hidden_field :info_id, :value => "#{@info.id}" %>
+
+          <p>
+            <label>备注内容</label>
+            <%= f.text_area :content %>
+          </p>
+
+          <fieldset>
+              <input class="submit-green" type="submit" value="Submit" /> 
+              <input class="submit-gray" type="reset" value="Cancel" />
+          </fieldset> 
+
+          <% end %>
+        </div>
+        </div> <!-- End .module-body -->
+    </div> <!-- End .module -->
+  <div style="clear:both;"></div>
+</div> <!-- End .grid_6 -->
+<div style="clear:both;"></div>
+
+

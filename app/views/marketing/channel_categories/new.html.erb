@@ -1,0 +1,15 @@
+<script type="text/javascript" charset="utf-8">
+  jQuery(document).ready(function(){
+    // binds form submission and fields to the validation engine
+    jQuery("#new_channel_category").validationEngine();
+  });
+
+</script> 			
+<div class="grid_12">
+	<div class="bottom-spacing">
+        <a href="<%= marketing_channel_categories_path %>" class="button">
+          <span>返回</span>
+        </a>
+    </div>
+</div>
+<%= render 'form' %>

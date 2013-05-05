@@ -1,0 +1,65 @@
+<script type="text/javascript" charset="utf-8">
+  jQuery(document).ready(function(){
+    // binds form submission and fields to the validation engine
+    jQuery("#edit_").validationEngine();
+  });
+</script> 
+<script type="text/javascript">
+    $(function() {
+            $( "#datepicker_1" ).datetimepicker();
+            $( "#datepicker_1" ).datetimepicker( "option", "dateFormat", "yy-mm-dd" );
+            $("form").submit(function(e){
+               if($( "#datepicker_1" ).val() == ""){
+                  alert("请选择时间!");
+                  $( "#datepicker_1" ).focus();
+                  return false;
+               }
+            });
+    });
+</script>
+
+			<div class="grid_12">
+            	<div class="bottom-spacing">
+                
+                    
+                    <div class="float-left">
+                        <a href="<%= invit_index_client_infos_path %>" class="button">
+                          <span>返回</span>
+                        </a>
+                    </div>
+                    
+                </div>
+            </div>
+
+
+        <div class="grid_5">
+          <div class="module">
+          <h2><span></span></h2>
+
+            <div class="module-body">
+                <%= form_for([:client, @info, @invation]) do |f| %>
+
+                  <%= f.hidden_field :info_id, :value => "#{@info.id}" %>
+
+                  <p>
+                    <label>到访状态</label>
+                    <%= f.select :status,[["已经到访", 1]]%>
+                  </p>
+                  <%= f.hidden_field :user_id, :value => "#{current_user.id}"%>
+                  <p>
+                    <label>到访时间</label>
+                    <input type="text" id="datepicker_1" name="invation[come_time]" />
+                  </p>
+
+                  <fieldset>
+                      <input class="submit-green" type="submit" value="Submit" /> 
+                      <input class="submit-gray" type="reset" value="Cancel" />
+                  </fieldset> 
+
+                  <% end %>
+                </div>
+                </div> <!-- End .module-body -->
+            </div> <!-- End .module -->
+          <div style="clear:both;"></div>
+        </div> <!-- End .grid_6 -->
+        <div style="clear:both;"></div>

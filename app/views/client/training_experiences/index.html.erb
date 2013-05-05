@@ -1,0 +1,80 @@
+        <!-- Initiate tablesorter script -->
+        <script type="text/javascript">
+            $(document).ready(function() { 
+                $("#myTable") 
+                .tablesorter({
+                    // zebra coloring
+                    widgets: ['zebra'],
+                    // pass the headers argument and assing a object 
+                    headers: { 
+                        // assign the sixth column (we start counting zero) 
+                        6: { 
+                            // disable it by setting the property sorter to false 
+                            sorter: false 
+                        } 
+                    }
+                });
+            //.tablesorterPager({container: $("#pager")}); 
+        }); 
+        </script>
+
+<div class="grid_12">
+
+    <div class="bottom-spacing">
+
+        <!-- Button -->
+        <div class="float-left">
+            <a href="<%= new_client_info_training_experience_path(@info) %>" class="button">
+              <span>新建培训<img src="<%= Xmcrm::Application.config.staticfile_server_url %>admin_style/images/plus-small.gif" width="12" height="9" alt="New training_experiences" /></span>
+            </a>
+        </div>
+
+    </div>
+
+    <div class="module">
+        <h2><span>角色管理</span></h2>
+
+        <div class="module-table-body">
+
+            <table id="myTable" class="tablesorter">
+              <thead>
+                    <tr>
+                        <th style="width:5%">ID</th>
+                        <th style="width:10%">考试类型</th>
+                        <th style="width:10%">发起人</th>
+                        <th style="width:15%">客户姓名</th>
+                        <th style="width:15%">创建日期</th>
+                        <th style="width:15%">最后更新</th>
+                        <th style="width:15%">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @training_experiences.each do |training_experience| %>
+                    <tr>
+                        <td class="align-center"><%= link_to training_experience.id, client_info_training_experience_path(@info, training_experience)%></td>
+                        <td><%= training_experience.exam_type.name %></td>
+                        <td><%= training_experience.user.username %></td>
+                        <td><%= training_experience.info.name %></td>
+                        <td><%= training_experience.created_at.strftime('%Y-%m-%d %H:%M') %></td>
+                        <td><%= training_experience.updated_at.strftime('%Y-%m-%d %H:%M') %></td>
+                        <td>
+                          <%= link_to "编辑", edit_client_info_training_experience_path(@info, training_experience) %> |
+                          <%= link_to "删除", client_info_training_experience_path(@info, training_experience), :method => :delete, :confirm => 
+                          "你确定要删除此培训经历吗?" %> 
+                        </td>
+                    </tr> 
+                    <% end %>                             
+                </tbody>
+            </table>
+            
+            <div style="clear: both"></div>
+        </div> <!-- End .module-table-body -->
+    </div> <!-- End .module -->
+
+
+    <div class="apple_pagination">
+        <%=h will_paginate @training_experiences, :previous_label => '上一页',  :next_label => '下一页'%>
+    </div>
+
+</div> <!-- End .grid_12 -->
+<div style="clear: both"></div>

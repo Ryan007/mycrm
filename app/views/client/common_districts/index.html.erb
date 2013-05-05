@@ -1,0 +1,65 @@
+<!-- Initiate tablesorter script -->
+<script type="text/javascript">
+    $(document).ready(function() { 
+        $("#myTable") 
+        .tablesorter({
+            // zebra coloring
+            widgets: ['zebra'],
+            // pass the headers argument and assing a object 
+            headers: { 
+                // assign the sixth column (we start counting zero) 
+                6: { 
+                    // disable it by setting the property sorter to false 
+                    sorter: false 
+                } 
+            }
+        });
+    //.tablesorterPager({container: $("#pager")}); 
+}); 
+</script>
+
+<div class="grid_12">
+
+    <div class="bottom-spacing">
+
+    </div>
+
+    <div class="module">
+        <h2><span>全国地区</span></h2>
+
+        <div class="module-table-body">
+
+            <table id="myTable" class="tablesorter">
+              <thead>
+                    <tr>
+                        <th style="width:5%">ID</th>
+                        <th style="width:20%">名称</th>
+                        <th style="width:21%">上级名称</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @common_districts.each do |common| %>
+                    <tr>
+                        <td class="align-center"><%= common.id %></td>
+                        <td><a href=""><%= link_to common.name, [:client, common] %></a></td>
+                        <td>
+                        	<% if common.upid == 0%>
+                        		<%= "顶级"%>
+                        	<% else %>
+                        		<%= CommonDistrict.find(common.upid).name %>
+                        	<% end %>
+                        </td>
+                    </tr> 
+                    <% end %>                             
+                </tbody>
+            </table>
+            
+            <div style="clear: both"></div>
+        </div> <!-- End .module-table-body -->
+    </div> <!-- End .module -->
+
+</div> <!-- End .grid_12 -->
+<div style="clear: both"></div>
+<div class="apple_pagination">
+    <%=h will_paginate @common_districts, :previous_label => '上一页',  :next_label => '下一页'%>
+</div>

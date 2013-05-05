@@ -1,0 +1,115 @@
+<!-- Initiate tablesorter script -->
+<script type="text/javascript">
+    $(document).ready(function() { 
+        $("#myTable") 
+        .tablesorter({
+            // zebra coloring
+            widgets: ['zebra'],
+            // pass the headers argument and assing a object 
+            headers: { 
+                // assign the sixth column (we start counting zero) 
+                6: { 
+                    // disable it by setting the property sorter to false 
+                    sorter: false 
+                } 
+            }
+        });
+        $( "#datepicker" ).datepicker();
+	    $( "#datepicker" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
+	    $( "#datepicker1" ).datepicker();
+	    $( "#datepicker1" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
+	    $( "#datepicker" ).val("<%= @time%>");
+	    $( "#datepicker1" ).val("<%= @time1%>");
+	    $("form").submit(function(e){
+	      if($( "#datepicker" ).val() == ""){
+	          alert("开始时间!");
+	          $( "#datepicker" ).focus();
+	          return false;
+	      }
+	      if($( "#datepicker1" ).val() == ""){
+	          alert("结束时间!");
+	          $( "#datepicker1" ).focus();
+	          return false;
+	       }
+	      if($( "#datepicker" ).val() > $( "#datepicker1" ).val()){
+	          alert("结束时间不能比开始时间早，请重新选择!");
+	          $( "#datepicker1" ).focus();
+	          return false;
+	       }
+	    });
+}); 
+</script>
+
+<style>
+    .LinkUl { float:left; padding: 2px; margin: 2px;}
+    li{padding: 2px; margin: 2px;}
+</style>
+<div class="grid_12">
+    <div class="module">
+        <div class="bottom-spacing">
+        <%= form_tag(admin_analytic_cc_path, :method => :get) do %>
+                <p>
+	                <ul id="ul4" class="LinkUl">
+	                    <li>
+	                    	开始日期: <input type="text" id="datepicker" name="start_date">
+	                    </li>
+	                </ul>
+	                <ul class="LinkUl">
+	                    <li>
+	                        结束日期: <input type="text" id="datepicker1" name="end_date">
+	                    </li>
+	                </ul>
+	                <ul id="ul3" class="LinkUl">
+	                    <li><%= submit_tag("提交查询") %></li>
+	                </ul>
+                </p>
+        <% end %>
+        </div>
+    </div>
+</div>
+
+<div class="grid_12">
+
+    <div class="module">
+        <h2>
+            <span>
+                <ul class="LinkUl">
+                    <div style="display: inline;">客户信息管理</div>
+                    <div style="display: inline; color:blue; margin-left:4px;">
+                        共有<%= @count_invations%>条预约
+                    </div>
+                </ul>
+            </span>
+        </h2>
+        <div class="module-table-body">
+
+            <table id="myTable" class="tablesorter">
+              <thead>
+                    <tr>
+                        <th style="width:10%; text-align:center;">名称</th>
+                        <th style="width:10%">邮箱</th>
+                        <th style="width:10%">预约人次</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <% @ccs.each do |cc| %>
+                    <tr>
+                        <td class="align-center"><%= cc.username %></td>
+                        <td><%= cc.email %></td>
+                        <td>
+                        	<%= cc.invations.where('created_at' => @time_range).count() %>
+                        </td>
+                    </tr> 
+                    <% end %>        
+                </tbody>
+            </table>
+            
+            <div style="clear: both"></div>
+        </div> <!-- End .module-table-body -->
+    </div> <!-- End .module -->
+    <div class="apple_pagination">
+        <%=h will_paginate @ccs, :previous_label => '上一页',  :next_label => '下一页'%>
+    </div>
+</div> <!-- End .grid_12 -->
+<div style="clear: both"></div>

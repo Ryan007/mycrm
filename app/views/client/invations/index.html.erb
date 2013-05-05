@@ -1,0 +1,87 @@
+        <!-- Initiate tablesorter script -->
+        <script type="text/javascript">
+            $(document).ready(function() { 
+                $("#myTable") 
+                .tablesorter({
+                    // zebra coloring
+                    widgets: ['zebra'],
+                    // pass the headers argument and assing a object 
+                    headers: { 
+                        // assign the sixth column (we start counting zero) 
+                        6: { 
+                            // disable it by setting the property sorter to false 
+                            sorter: false 
+                        } 
+                    }
+                });
+            //.tablesorterPager({container: $("#pager")}); 
+        }); 
+        </script>
+
+<div class="grid_12">
+
+    <div class="bottom-spacing">
+
+        <!-- Button -->
+        <div class="float-left">
+            <a href="<%= new_client_info_invation_path %>" class="button">
+              <span>添加预约<img src="<%= Xmcrm::Application.config.staticfile_server_url %>admin_style/images/plus-small.gif" width="12" height="9" alt="New exams" /></span>
+            </a>
+        </div>
+
+    </div>
+
+    <div class="module">
+        <h2><span>预约管理</span></h2>
+
+        <div class="module-table-body">
+
+            <table id="myTable" class="tablesorter">
+              <thead>
+                    <tr>
+                        <th style="width:5%">ID</th>
+                        <th style="width:5%">客户姓名</th>
+                        <th style="width:5%">预约人</th>
+                        <th style="width:5%">状态</th>
+                        <th style="width:15%">预约时间</th>
+                        <th style="width:15%">创建日期</th>
+                        <th style="width:15%">最后更新</th>
+                        <th style="width:10%">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @invations.each do |invation| %>
+                    <tr>
+                        <td class="align-center"><%= link_to invation.id, client_info_invation_path(@info, invation)%></td>
+                        <td><%= invation.info.name %></td>
+                        <td>
+                            <% if invation.user_id%>
+                                <%= User.find(invation.user_id).username %>
+                            <% end %>
+                        </td>
+                        <td><%= invation.status==1 ? "已到访" : "未到访" %></td>
+                        <td>
+                            <% if invation.invit_time%>
+                            <%= invation.invit_time.strftime('%Y-%m-%d %H:%M') %>
+                            <% end %>
+                        </td>
+                        <td><%= invation.created_at.strftime('%Y-%m-%d') %></td>
+                        <td><%= invation.updated_at.strftime('%Y-%m-%d') %></td>
+                        <td>
+                            <%= link_to '删除', client_info_invation_path(@info, invation), confirm: 'Are you sure?', method: :delete %>
+                        </td>
+                    </tr> 
+                    <% end %>                             
+                </tbody>
+            </table>
+            
+            <div style="clear: both"></div>
+        </div> <!-- End .module-table-body -->
+    </div> <!-- End .module -->
+
+</div> <!-- End .grid_12 -->
+<div style="clear: both"></div>
+
+<div class="apple_pagination">
+    <%=h will_paginate @invations, :previous_label => '上一页',  :next_label => '下一页'%>
+</div>

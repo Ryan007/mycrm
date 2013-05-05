@@ -1,0 +1,30 @@
+<div class="grid_12">
+    <div class="bottom-spacing">
+        <a href="<%= client_info_exams_path(@info) %>" class="button">
+          <span>返回</span>
+        </a>
+    </div>
+</div>
+<div class="grid_5">
+
+    <div class="module">
+         <h2><span>会话</span></h2>
+
+         <div class="module-body">
+            <p>
+				<div>考试类型:<%= @exam.exam_type.name %></div>
+			</p>
+
+			<p>
+				<div>客户姓名:<%= link_to @exam.info.name, client_info_path(@exam.info) %></div>
+			</p>
+
+			<p>
+				<div>考试时间:<%= @exam.exam_time %></div>
+			</p>
+
+         </div> <!-- End .module-body -->
+    </div> <!-- End .module -->
+    <div style="clear:both;"></div>
+</div> <!-- End .grid_6 -->
+<div style="clear:both;"></div>

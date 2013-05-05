@@ -1,0 +1,196 @@
+<!-- Initiate tablesorter script -->
+<script type="text/javascript">
+    $(document).ready(function() { 
+        $("#myTable") 
+        .tablesorter({
+            // zebra coloring
+            widgets: ['zebra'],
+            // pass the headers argument and assing a object 
+            headers: { 
+                // assign the sixth column (we start counting zero) 
+                6: { 
+                    // disable it by setting the property sorter to false 
+                    sorter: false 
+                } 
+            }
+        });
+        $( "#datepicker" ).datepicker();
+	    $( "#datepicker" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
+	    $( "#datepicker1" ).datepicker();
+	    $( "#datepicker1" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
+	    $( "#datepicker" ).val("<%= @time%>");
+	    $( "#datepicker1" ).val("<%= @time1%>");
+	    $("form").submit(function(e){
+	      if($( "#datepicker" ).val() == ""){
+	          alert("开始时间!");
+	          $( "#datepicker" ).focus();
+	          return false;
+	      }
+	      if($( "#datepicker1" ).val() == ""){
+	          alert("结束时间!");
+	          $( "#datepicker1" ).focus();
+	          return false;
+	       }
+	      if($( "#datepicker" ).val() > $( "#datepicker1" ).val()){
+	          alert("结束时间不能比开始时间早，请重新选择!");
+	          $( "#datepicker1" ).focus();
+	          return false;
+	       }
+	    });
+}); 
+</script>
+
+<style>
+    .LinkUl { float:left; padding: 2px; margin: 2px;}
+    li{padding: 2px; margin: 2px;}
+</style>
+<div class="grid_12">
+    <div class="module">
+        <div class="bottom-spacing">
+        <%= form_tag(admin_analytic_callcenter_path, :method => :get) do %>
+                <p>
+	                <ul id="ul4" class="LinkUl">
+	                    <li>
+	                    	开始日期: <input type="text" id="datepicker" name="start_date">
+	                    </li>
+	                </ul>
+	                <ul class="LinkUl">
+	                    <li>
+	                        结束日期: <input type="text" id="datepicker1" name="end_date">
+	                    </li>
+	                </ul>
+	                <ul id="ul3" class="LinkUl">
+	                    <li><%= submit_tag("提交查询") %></li>
+	                </ul>
+                </p>
+        <% end %>
+        </div>
+    </div>
+</div>
+
+<div class="grid_12">
+
+    <div class="module">
+        <h2>
+            <span>
+                <ul class="LinkUl">
+                    <div style="display: inline;">客户信息管理</div>
+                    <div style="display: inline; color:blue; margin-left:4px;">
+                        共有<%= @info_count%>条数据
+                    </div>
+                    <div style="display: inline; color:blue; margin-left:4px;">
+                        呼出<%= @called_count%>条
+                        呼入<%= @call_count%>条
+                        乐语<%= @leyo_count%>条
+                    </div>
+                </ul>
+            </span>
+        </h2>
+        <div class="module-table-body">
+
+            <table id="myTable" class="tablesorter">
+              <thead>
+                    <tr>
+                        <th style="width:9%; text-align:center;">名称</th>
+                        <th style="width:9%">邮箱</th>
+                        <th style="width:8%">呼入总量</th>
+                        <th style="width:8%">呼入有效量</th>
+                        <th style="width:8%">呼入有效率</th>
+                        <th style="width:8%">呼出总量</th>
+                        <th style="width:8%">呼出有效量</th>
+                        <th style="width:8%">呼出有效率</th>
+                        <th style="width:8%">乐语总量</th>
+                        <th style="width:8%">乐语有效量</th>
+                        <th style="width:8%">乐语有效率</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <% @users.each do |user| %>
+                    <%
+                        @call_in = user.infos.where("source = 1").where('created_at' => @time_range).count();
+                        @call_in_vali = user.infos.where("source = 1 and is_validate = 1").where('created_at' => @time_range).count();
+                        @call_out = user.infos.where("source = 2").where('created_at' => @time_range).count();
+                        @call_out_vali = user.infos.where("source = 2 and is_validate = 1").where('created_at' => @time_range).count();
+                        @looyu =  user.infos.where("source = 3").where('created_at' => @time_range).count();
+                        @looyu_vali = user.infos.where("source = 3 and is_validate = 1").where('created_at' => @time_range).count();
+                    %>
+                    <tr>
+                        <td class="align-center"><%= user.username %></td>
+                        <td><%= user.email %></td>  
+                        <td>
+                            <% if @call_in == 0 %>
+                                --
+                            <% else %>
+                                <%= @call_in %>
+                            <% end %>
+                        </td>
+                        <td>
+                            <% if @call_in_vali == 0 %>
+                                --
+                            <% else %>
+                                <%= @call_in_vali %>
+                            <% end %>
+                        </td>
+                        <td>
+                            <% if @call_in == 0 %>
+                                --
+                            <%  else %>
+                                <%= sprintf("%.2f",@call_in_vali*100.00000/@call_in) %>%
+                            <%  end %>
+                        </td>
+                        <td>
+                            <% if @call_out == 0 %>
+                                --
+                            <% else %>
+                                <%= @call_out %>
+                            <% end %>
+                        </td>
+                        <td>
+                            <% if @call_out_vali == 0 %>
+                                --
+                            <% else %>
+                                <%= @call_out_vali %>
+                            <% end %>
+                        </td>
+                        <td>
+                            <% if @call_out == 0 %>
+                                --
+                            <%  else %>
+                                <%= sprintf("%.2f",@call_out_vali*100.00000/@call_out) %>%
+                            <%  end %>
+                        </td>
+                        <td>
+                            <% if @looyu == 0 %>
+                                --
+                            <% else %>
+                                <%= @looyu %>
+                            <% end %>
+                        </td>
+                        <td>
+                            <% if @looyu_vali == 0 %>
+                                --
+                            <% else %>
+                                <%= @looyu_vali %>
+                            <% end %>
+                        </td>
+                        <td>
+                            <% if @looyu == 0 %>
+                                --
+                            <%  else %>
+                                <%= sprintf("%.2f",@looyu_vali*100.00000/@looyu) %>%
+                            <%  end %>
+                        </td>
+                    </tr> 
+                    <% end %>                             
+                </tbody>
+            </table>
+            
+            <div style="clear: both"></div>
+        </div> <!-- End .module-table-body -->
+    </div> <!-- End .module -->
+    <div class="apple_pagination">
+        <%=h will_paginate @users, :previous_label => '上一页',  :next_label => '下一页'%>
+    </div>
+</div> <!-- End .grid_12 -->
+<div style="clear: both"></div>

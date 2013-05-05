@@ -1,0 +1,2 @@
+module ManageInvitHelper
+end

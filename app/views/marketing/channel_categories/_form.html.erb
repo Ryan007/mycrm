@@ -1,0 +1,29 @@
+<div class="grid_5">
+  <div class="module">
+  <h2><span>渠道分类管理</span></h2>
+
+    <div class="module-body">
+        <%= form_for([:marketing, @channel_category]) do |f| %>
+          <p>
+            <label>渠道名称</label>
+            <%= f.text_field :category_name, :class => "input-medium validate[required,minSize[2]]" %>
+          </p>
+
+          <p>
+            <label>描述</label>
+            <%= f.text_area :description %>
+          </p>
+
+          <fieldset>
+              <input class="submit-green" type="submit" value="Submit" /> 
+              <input class="submit-gray" type="submit" value="Cancel" />
+          </fieldset>
+
+          <% end %>
+        </div>
+        </div> <!-- End .module-body -->
+    </div> <!-- End .module -->
+  <div style="clear:both;"></div>
+</div> <!-- End .grid_6 -->
+<div style="clear:both;"></div>
+

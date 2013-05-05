@@ -1,0 +1,21 @@
+<script type="text/javascript" charset="utf-8">
+  jQuery(document).ready(function(){
+    // binds form submission and fields to the validation engine
+    jQuery("#edit_record_<%= @record.id %>").validationEngine();
+  });
+
+</script> 
+
+			<div class="grid_12">
+            	<div class="bottom-spacing">
+                
+                    
+                    <div class="float-left">
+                        <a href="<%= client_info_session_records_path(@info, @session) %>" class="button">
+                          <span>返回</span>
+                        </a>
+                    </div>
+                    
+                </div>
+            </div>
+<%= render 'form' %>

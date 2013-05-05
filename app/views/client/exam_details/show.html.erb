@@ -1,0 +1,43 @@
+<div class="grid_12">
+    <div class="bottom-spacing">
+        <a href="<%= client_info_exam_exam_details_path(@info, @exam) %>" class="button">
+          <span>返回</span>
+        </a>
+    </div>
+</div>
+<div class="grid_5">
+
+    <div class="module">
+         <h2><span>会话</span></h2>
+
+         <div class="module-body">
+          <p>
+            <b>考试类型:</b>
+            <%= @exam_detail.exam.exam_type.name %>
+          </p>
+
+          <p>
+            <b>听力:</b>
+            <%= @exam_detail.listening %>
+          </p>
+
+          <p>
+            <b>阅读:</b>
+            <%= @exam_detail.reading %>
+          </p>
+
+          <p>
+            <b>写作:</b>
+            <%= @exam_detail.writing %>
+          </p>
+
+          <p>
+            <b>口语:</b>
+            <%= @exam_detail.oral %>
+          </p>
+
+         </div> <!-- End .module-body -->
+    </div> <!-- End .module -->
+    <div style="clear:both;"></div>
+</div> <!-- End .grid_6 -->
+<div style="clear:both;"></div>

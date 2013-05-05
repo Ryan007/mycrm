@@ -1,0 +1,349 @@
+<style>
+  h1 a, h1 a:visited, h2 a, h2 a:visited, h3 a, h3 a:visited, h4 a, h4 a:visited, h5 a, h5 a:visited, h6 a, h6 a:visited {
+    color: rgb(255, 255, 255);
+  }
+  .province_list { display: none;}
+</style>
+<script type="text/javascript">
+  $(document).ready(function() {
+      var Timeout = null;
+      $('#ch_pro').mouseover(function(){
+          $('.province_list').show();
+      });
+
+      $('#ch_pro').mouseout(function(){
+        Timeout = setTimeout(function(){ $('.province_list').hide();},300)
+      });
+
+      $('.province_list').mouseover(function(){
+        clearTimeout(Timeout);
+      });
+
+      $('.province_list').mouseout(function(){
+        Timeout = setTimeout(function(){ $('.province_list').hide();},300)
+      });
+
+      $(".province_list").find('a').click(function(){
+        $('#ch_pro').val($(this).text());
+        $('#info_province').val($(this).attr("p"));
+        $('.province_list').hide();
+        get_options($(this).attr("p"));
+      });
+  });
+  function get_options(value){
+    $.ajax({
+      type: "get",
+      url: "/client/infos/get_city?city_id="+value,
+      success: function(data){
+        $("#info_city").html(data);
+        get_option1s(0);
+      }
+    })
+   }
+   function get_option1s(value){
+    $.ajax({
+      type: "get",
+      url: "<%= get_district_client_infos_path %>?district_id="+value,
+      success: function(data){
+        $("#info_district").html(data);
+      }
+    })
+    }
+</script>
+
+<div class="grid_5">
+  <div class="module">
+  <h2><span>客户信息管理</span></h2>
+
+    <div class="module-body">
+        <%= form_for([:client, @info]) do |f| %>
+            <% if @info.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@info.errors.count, "error") %> prohibited this info from being saved:</h2>
+
+              <ul>
+              <% @info.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+              </ul>
+            </div>
+            <% end %>
+            <div id="css3-animated-example">
+              <h3 class="open">个人信息</h3>
+              <div>
+                <div id="content">
+                  <p>
+                    <label>客户名称</label>
+                    <%= f.text_field :name, :class => "input-medium validate[required, minSize[2], maxSize[16]]"  %>
+                  </p>
+
+                  <%= f.hidden_field :user_id, :value => "#{current_user.id}"%>
+
+                  <p>
+                    <label>客户电话</label>
+                    <%= f.text_field :cellphone, :class => "input-medium validate[required, custom[phone]]" %>
+                  </p>
+
+                  <p>
+                    <label>客户年龄</label>
+                    <%= f.text_field :age,  :class => "input-medium validate[custom[integer],min[6],max[99]]" %>
+                  </p>
+
+                  <p>
+                    <label>客户Email</label>
+                    <%= f.text_field :email, :class => "input-medium validate[custom[email]]" %>
+                  </p>
+
+                  <p>
+                    <label>性别</label>
+                    <%= f.select(:gender, [["男", 0], ["女", 1]], { :include_blank => true}) %>
+                  </p>
+
+                  <p>
+                    <label>性格特点</label>
+                    <%= f.select(:character_type_id, CharacterType.all.collect { |p| [p.character_name, p.id]}, { :include_blank => true })%>
+                  </p>
+                  
+                  <p>
+                    <label>所在年级</label>
+                    <%= f.text_field :grade %>
+                  </p>
+
+                  <p>
+                    <label>就读学校</label>
+                    <%= f.text_field :current_school %>
+                  </p>
+                  <%= f.hidden_field :province %>
+                  <p style="position:relative">
+                    <label>省份</label>
+                    <div><input type="text" value="请选择" id="ch_pro"/></div>
+                    <div class="province_list" style="position:absolute; background:#8ff;">
+                      <dt>请选择省份</dt>
+                        <dd>
+                          <a p=1> 北京市</a>、
+                          <a p=2> 天津市</a>、
+                          <a p=19> 广东省</a>、
+                          <a p=9> 上海市</a>、<br />
+                          <a p=10> 江苏省</a>、
+                          <a p=11> 浙江省</a>、
+                          <a p=4> 山西省</a>、
+                          <a p=6> 辽宁省</a>、
+                        </dd>
+                      <dt>请选择省份</dt>
+                        <dd>
+                          <a p=7> 吉林省</a>、
+                          <a p=8> 黑龙江省</a>
+                          <a p=13> 福建省</a>、
+                          <a p=14> 江西省</a>、<br />
+                          <a p=15> 山东省</a>、
+                          <a p=16> 河南省</a>、
+                          <a p=17> 湖北省</a>、
+                          <a p=18> 湖南省</a><br />
+                          <a p=12> 安徽省</a>、 
+                          <a p=3> 河北省</a>、
+                          <a p=20> 广西壮族自治区</a>
+                        </dd>
+                      <dt>请选择省份</dt>
+                        <dd>
+                          <a p=22> 重庆市</a>、
+                          <a p=23> 四川省</a>、
+                          <a p=24> 贵州省</a>、
+                          <a p=25> 云南省</a>、<br />
+                          <a p=5> 内蒙古自治区</a>、
+                          <a p=26> 西藏自治区</a>、
+                          <a p=29> 青海省</a><br />
+                          <a p=30> 宁夏回族自治区</a>、
+                          <a p=31> 新疆维吾尔自治区</a>、<br />
+                          <a p=32> 台湾省</a>、
+                          <a p=27> 陕西省</a>、
+                          <a p=28> 甘肃省</a>、<br />
+                          <a p=33> 香港特别行政区</a>、
+                          <a p=34> 澳门特别行政区</a>、<br />
+                          <a p=35> 海外</a>、
+                          <a p=36> 其他</a>
+                        </dd>
+                      </div>
+                  </p>
+
+                  <p>
+                    <label>城市</label>
+                    <select id="info_city" name="info[city]" onchange="get_option1s(this.value)">
+                      <option>请选择市</option>
+                    </select>
+                  </p>
+
+                  <p>
+                    <label>地区</label>
+                    <select id="info_district" name="info[district]">
+                      <option>请选择地区</option>
+                    </select>
+                  </p>
+
+                </div>
+              </div>
+              <h3>家长信息</h3>
+              <div>
+                <div class="content">
+
+                  <p>
+                    <label>话语权</label>
+                    <%= f.text_field :decision_power %>
+                  </p>
+
+                  <p>
+                    <label>母亲名称</label>
+                    <%= f.text_field :mother_name %>
+                  </p>
+
+                  <p>
+                    <label>母亲电话</label>
+                    <%= f.text_field :mother_phone%>
+                  </p>
+
+                  <p>
+                    <label>母亲Email</label>
+                    <%= f.text_field :mother_email, :class => "input-medium validate[custom[email]]"  %>
+                  </p>
+
+                  <p>
+                    <label>父亲名称</label>
+                    <%= f.text_field :father_name %>
+                  </p>
+
+                  <p>
+                    <label>父亲电话</label>
+                    <%= f.text_field :father_phone%>
+                  </p>
+                  
+
+                  <p>
+                    <label>父亲Email</label>
+                    <%= f.text_field :father_email, :class => "input-medium validate[custom[email]]"  %>
+                  </p>
+                </div>
+              </div>
+              <h3>考试信息</h3>
+              <div>
+                <div class="content">
+                  <p>
+                    <label>将要参加的考试</label>
+                    <%= f.select(:expect_exam, ExamType.all.collect { |p| [p.name, p.id]}, { :include_blank => true })%>
+                  </p>
+
+                  <p>
+                    <label>终极分数</label>
+                    <%= f.text_field :expect_score, :class => "input-medium validate[custom[integer]]" %>
+                  </p>
+
+                  <p>
+                    <label>终极听力分数</label>
+                    <%= f.text_field :expect_listening_score, :class => "input-medium validate[custom[integer]]" %>
+                  </p>
+
+                  <p>
+                    <label>终极阅读分数</label>
+                    <%= f.text_field :expect_reading_score, :class => "input-medium validate[custom[integer]]" %>
+                  </p>
+
+                  <p>
+                    <label>终极写作分数</label>
+                    <%= f.text_field :expect_writing_score, :class => "input-medium validate[custom[integer]]" %>
+                  </p>
+
+                  <p>
+                    <label>终极口语分数</label>
+                    <%= f.text_field :expect_oral_score, :class => "input-medium validate[custom[integer]]"  %>
+                  </p>
+
+                  <p>
+                    <label>期望学校排名</label>
+                    <%= f.text_field :expect_colleage_ranking %>
+                  </p>
+
+                  <p>
+                    <label>期望专业</label>
+                    <%= f.text_field :expect_major  %>
+                  </p>
+
+                  <p>
+                    <label>入学测试成绩</label>
+                    <%= f.text_field :admission_score %>
+                  </p>
+
+                  <p>
+                    <label>留学英语考试</label>
+                    <%= f.select(:is_examed, [["未知", 2], ["否", 0], ["是", 1]]) %>
+                  </p>
+
+                  <p>
+                    <label>是否参加过留学培训</label>
+                    <%= f.select(:is_trained, [["未知", 2], ["否", 0], ["是", 1]]) %>
+                  </p>
+
+                  <p>
+                    <label>已参加的考试</label>
+                    <%= f.select(:exam_type_id, ExamType.all.collect { |p| [p.name, p.id]}, { :include_blank => true })%>
+                  </p>
+
+                </div>
+              </div>
+              <h3>其它信息</h3>
+              <div>
+                <div class="content">
+                  <% if @info.channel_info_id %>
+                  <p>
+                    <label>渠道人员</label>
+                    <%= f.select(:channel_info_id,  [[@info.channel_info.name, @info.channel_info.id]]) %>
+                  </p>
+                  <% else %>
+                  <p>
+                    <label>渠道人员</label>
+                    <%= f.select(:channel_info_id, ChannelInfo.all.collect { |p| [p.name, p.id] }, { :include_blank => true }) %>
+                  </p>         
+                  <% end %>
+
+                  <p>
+                    <label>核心需求</label>
+                    <%= f.text_field :core_question %>
+                  </p>
+
+                  <p>
+                    <label>核心需求答案</label>
+                    <%= f.text_area :core_question_answer %>
+                  </p>
+
+                  <p>
+                    <label>分配cc</label>
+                    <%= f.select(:cc_id, @ccs.collect { |p| [p.username, p.id] }, { :include_blank => true }) %>
+                  </p>
+                </div>
+              </div>
+
+            </div>
+            <script>
+              $("#css3-animated-example").collapse({
+                accordion: true,
+                persist: true,
+                open: function() {
+                  this.addClass("open");
+                  this.css({ height: this.children().outerHeight() });
+                },
+                close: function() {
+                  this.css({ height: "0px" });
+                  this.removeClass("open");
+                }
+              });
+            </script>
+            <!-- END Showing and hiding with CSS -->
+          <fieldset>
+              <input class="submit-green" type="submit" value="Submit" /> 
+              <input class="submit-gray" type="submit" value="Cancel" />
+          </fieldset>
+
+          <% end %>
+        </div>
+        </div> <!-- End .module-body -->
+    </div> <!-- End .module -->
+  <div style="clear:both;"></div>
+</div> <!-- End .grid_6 -->
+<div style="clear:both;"></div>

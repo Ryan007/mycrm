@@ -1,0 +1,26 @@
+<div class="grid_12">
+    <div class="bottom-spacing">
+        <a href="<%= client_character_types_path %>" class="button">
+          <span>返回</span>
+        </a>
+    </div>
+</div>
+<div class="grid_5">
+
+    <div class="module">
+         <h2><span>性格类型</span></h2>
+            
+         <div class="module-body">
+            <p>
+				<div>类型:<%= @character_type.character_name %></div>
+			</p>
+			<p>
+				<div>描述:<%= @character_type.description %></div>
+			</p>
+            
+         </div> <!-- End .module-body -->
+    </div> <!-- End .module -->
+    <div style="clear:both;"></div>
+</div> <!-- End .grid_6 -->
+<div style="clear:both;"></div>
+

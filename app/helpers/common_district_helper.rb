@@ -1,0 +1,2 @@
+module CommonDistrictHelper
+end

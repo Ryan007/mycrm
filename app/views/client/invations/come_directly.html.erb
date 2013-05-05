@@ -1,0 +1,51 @@
+<script type="text/javascript" charset="utf-8">
+  jQuery(document).ready(function(){
+    // binds form submission and fields to the validation engine
+    jQuery("#edit_").validationEngine();
+  });
+</script> 
+<script type="text/javascript">
+    $(function() {
+            $( "#datepicker_1" ).datetimepicker();
+            $( "#datepicker_1" ).datetimepicker( "option", "dateFormat", "yy-mm-dd" );
+            $("form").submit(function(e){
+               if($( "#datepicker_1" ).val() == ""){
+                  alert("请选择时间!");
+                  $( "#datepicker_1" ).focus();
+                  return false;
+               }
+            });
+    });
+</script>
+
+
+<div class="grid_5">
+  <div class="module">
+  <h2><span></span></h2>
+
+    <div class="module-body">
+        <%= form_tag(save_directly_client_info_invations_path(@info), :method => :post) do%>
+
+          <%= hidden_field_tag :info_id, :value => "#{@info.id}" %>
+
+          <p>
+            <label>到访状态</label>
+            <%= select_tag :status, options_for_select([["已经到访", 1]]) %>
+          </p>
+          <p>
+            <label>到访时间</label>
+            <input type="text" id="datepicker_1" name="invation[come_time]" />
+          </p>
+
+          <fieldset>
+              <input class="submit-green" type="submit" value="Submit" /> 
+              <input class="submit-gray" type="reset" value="Cancel" />
+          </fieldset> 
+
+          <% end %>
+        </div>
+        </div> <!-- End .module-body -->
+    </div> <!-- End .module -->
+  <div style="clear:both;"></div>
+</div> <!-- End .grid_6 -->
+<div style="clear:both;"></div>

@@ -1,0 +1,130 @@
+<script type="text/javascript">
+    $(function() {
+    $( "#datepicker" ).datepicker();
+    $( "#datepicker" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
+    $( "#datepicker_1" ).datepicker();
+    $( "#datepicker_1" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
+    $( "#datepicker_2" ).datepicker();
+    $( "#datepicker_2" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
+    $( "#datepicker_3" ).datepicker();
+    $( "#datepicker_3" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
+    $( "#datepicker_4" ).datepicker();
+    $( "#datepicker_4" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
+    });
+</script>
+<div class="grid_5">
+  <div class="module">
+  <h2><span>客户信息管理</span></h2>
+
+    <div class="module-body">
+          <%= form_for([:client, @nsfm]) do |f| %>
+            <% if @nsfm.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(@nsfm.errors.count, "error") %> prohibited this nsfm from being saved:</h2>
+
+                <ul>
+                <% @nsfm.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+                </ul>
+              </div>
+            <% end %>
+
+            <%= f.hidden_field :user_id, :value => "#{current_user.id}" %>
+            <div class="field">
+              <%= f.label :stu_id, "学生编号" %><br />
+              <%= f.number_field :stu_id, :class => "input-medium validate[required, custom[number]]" %>
+            </div>
+            <div class="field">
+              <%= f.label :date_application, "报名日期" %><br />
+              <input type="text" id="datepicker" name="nsfm[date_application]" />
+            </div>
+            <div class="field">
+              <%= f.label :status, "状态" %><br />
+              <%= f.number_field :status %>
+            </div>
+            <div class="field">
+              <%= f.label :name, "姓名" %><br />
+              <%= f.text_field :name,  :class => "input-medium validate[required]" %>
+            </div>
+            <div class="field">
+              <%= f.label :age, "年龄" %><br />
+              <%= f.number_field :age, :class => "input-medium validate[custom[integer],min[6],max[99]]" %>
+            </div>
+            <div class="field">
+              <%= f.label :school, "学校" %><br />
+              <%= f.text_field :school %>
+            </div>
+            <div class="field">
+              <%= f.label :grade, "年级" %><br />
+              <%= f.text_field :grade %>
+            </div>
+            <div class="field">
+              <%= f.label :goal_score, "目标分数" %><br />
+              <%= f.number_field :goal_score,  :class => "input-medium validate[custom[integer]]" %>
+            </div>
+            <div class="field">
+              <%= f.label :learn_days, "学习天数" %><br />
+              <%= f.text_field :learn_days %>
+            </div>
+            <div class="field">
+              <%= f.label :fee, "学习金额" %><br />
+              <%= f.number_field :fee %>
+            </div>
+            <div class="field">
+              <%= f.label :previous_marks_exams, "历次考试分数和时间" %><br />
+              <%= f.text_area :previous_marks_exams %>
+            </div>
+            <div class="field">
+              <%= f.label :study_days, "报名天数" %><br />
+              <%= f.number_field :study_days %>
+            </div>
+            <div class="field">
+              <%= f.label :application_fee, "报名费用" %><br />
+              <%= f.number_field :application_fee %>
+            </div>
+            <div class="field">
+              <%= f.label :forcast_1st_date, "预期1st续费时间" %><br />
+              <input type="text" id="datepicker_1" name="nsfm[forcast_1st_date]" />
+            </div>
+            <div class="field">
+              <%= f.label :forcast_1st_fee, "预期1st续费金额" %><br />
+              <%= f.number_field :forcast_1st_fee %>
+            </div>
+            <div class="field">
+              <%= f.label :actual_1st_date, "实际1st续费时间" %><br />
+              <input type="text" id="datepicker_2" name="nsfm[actual_1st_date]" />
+            </div>
+            <div class="field">
+              <%= f.label :actual_1st_fee, "实际1st续费金额" %><br />
+              <%= f.number_field :actual_1st_fee %>
+            </div>
+            <div class="field">
+              <%= f.label :forcast_2nd_date, "预期2nd续费时间" %><br />
+              <input type="text" id="datepicker_3" name="nsfm[forcast_2nd_date]" />
+            </div>
+            <div class="field">
+              <%= f.label :forcast_2nd_fee, "" %><br />
+              <%= f.number_field :forcast_2nd_fee %>
+            </div>
+            <div class="field">
+              <%= f.label :actual_2nd_date, '实际2nd续费时间' %><br />
+              <input type="text" id="datepicker_4" name="nsfm[actual_2nd_date]" />
+            </div>
+            <div class="field">
+              <%= f.label :actual_2nd_fee, "实际2nd续费金额" %><br />
+              <%= f.number_field :actual_2nd_fee %>
+            </div>
+
+            <fieldset>
+                <input class="submit-green" type="submit" value="Submit" /> 
+                <input class="submit-gray" type="reset" value="Cancel" />
+            </fieldset>
+
+          <% end %>
+        </div>
+        </div> <!-- End .module-body -->
+    </div> <!-- End .module -->
+  <div style="clear:both;"></div>
+</div> <!-- End .grid_6 -->
+<div style="clear:both;"></div>

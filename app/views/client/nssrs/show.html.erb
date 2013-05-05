@@ -1,0 +1,129 @@
+<div class="grid_12">
+    <div class="bottom-spacing">
+        <% if current_user.roles.include?(Role.find(1))%>
+        <a href="<%= all_client_nssrs_url %>" class="button">
+          <span>返回</span>
+        </a>
+        <% else %>
+        <a href="<%= client_nssrs_url %>" class="button">
+          <span>返回</span>
+        </a>
+        <% end %>
+    </div>
+</div>
+<div class="grid_5">
+
+    <div class="module">
+         <h2><span>详情</span></h2>
+
+         <div class="module-body">
+            <p>
+              <b>所属用户:</b>
+              <%= @nssr.user.username %>
+            </p>
+
+            <p>
+              <b>学生编号:</b>
+              <%= @nssr.stu_id %>
+            </p>
+
+            <p>
+              <b>咨询日期:</b>
+              <%= @nssr.consult_date %>
+            </p>
+
+            <p>
+              <b>学生姓名:</b>
+              <%= @nssr.name %>
+            </p>
+
+            <p>
+              <b>年龄:</b>
+              <%= @nssr.age %>
+            </p>
+
+            <p>
+              <b>学校:</b>
+              <%= @nssr.school %>
+            </p>
+
+            <p>
+              <b>年级:</b>
+              <%= @nssr.grade %>
+            </p>
+
+            <p>
+              <b>分数目标:</b>
+              <%= @nssr.score_goal %>
+            </p>
+
+            <p>
+              <b>考试日期:</b>
+              <%= @nssr.exam_date %>
+            </p>
+
+            <p>
+              <b>学习天数:</b>
+              <%= @nssr.study_days %>
+            </p>
+
+            <p>
+              <b>报名费用:</b>
+              <%= @nssr.fee %>
+            </p>
+
+            <p>
+              <b>历次考试分数和考试时间:</b>
+              <%= @nssr.privious_marks_dates %>
+            </p>
+
+            <p>
+              <b>未签约原因:</b>
+              <%= @nssr.no_signup_reason %>
+            </p>
+
+            <p>
+              <b>预测1st费用金额:</b>
+              <%= @nssr.forcast_rec_1st_fee %>
+            </p>
+
+            <p>
+              <b>实际1nd续费时间:</b>
+              <%= @nssr.actual_rec_1st_date %>
+            </p>
+
+            <p>
+              <b>实际1st费用金额:</b>
+              <%= @nssr.actual_rec_1st_fee %>
+            </p>
+
+            <p>
+              <b>实际1nd续费金额:</b>
+              <%= @nssr.actual_rec_1st_fee %>
+            </p>
+
+            <p>
+              <b>预测2nd续费时间:</b>
+              <%= @nssr.forcast_rec_2nd_date %>
+            </p>
+
+            <p>
+              <b>预测2nd续费金额:</b>
+              <%= @nssr.forcast_rec_2nd_fee %>
+            </p>
+
+            <p>
+              <b>实际2nd续费日期:</b>
+              <%= @nssr.actual_re_2nd_date %>
+            </p>
+
+            <p>
+              <b>实际2nd续费时间:</b>
+              <%= @nssr.actual_rec_2nd_fee %>
+            </p>
+
+         </div> <!-- End .module-body -->
+    </div> <!-- End .module -->
+    <div style="clear:both;"></div>
+</div> <!-- End .grid_6 -->
+<div style="clear:both;"></div>

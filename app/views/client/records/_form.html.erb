@@ -1,0 +1,31 @@
+<div class="grid_5">
+  <div class="module">
+  <h2><span>会话内容</span></h2>
+
+    <div class="module-body">
+        <%= form_for([:client, @info, @session, @record]) do |f| %>
+          <p>
+            <label>问题</label>
+            <%= f.text_field :quesion, :class => "input-medium validate[required]"%>
+          </p>
+
+          <%= f.hidden_field :session_id, :value => "#{@session.id}" %>
+
+          <p>
+            <label>答案</label>
+            <%= f.text_field :answer, :class => "input-medium validate[required]" %>
+          </p>
+
+          <fieldset>
+              <input class="submit-green" type="submit" value="Submit" /> 
+              <input class="submit-gray" type="reset" value="Cancel" />
+          </fieldset> 
+
+          <% end %>
+        </div>
+        </div> <!-- End .module-body -->
+    </div> <!-- End .module -->
+  <div style="clear:both;"></div>
+</div> <!-- End .grid_6 -->
+<div style="clear:both;"></div>
+

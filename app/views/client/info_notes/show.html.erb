@@ -1,0 +1,26 @@
+<div class="grid_12">
+    <div class="bottom-spacing">
+        <a href="<%= client_info_info_notes_path(@info) %>" class="button">
+          <span>返回</span>
+        </a>
+    </div>
+</div>
+<div class="grid_5">
+
+    <div class="module">
+         <h2><span>备注</span></h2>
+
+         <div class="module-body">
+            <p>
+				<div>添加人员:<%= User.find(@info_note.cc_id).username %></div>
+			</p>
+
+			<p>
+				<div>内容:<%= @info_note.content %></div>
+			</p>
+
+         </div> <!-- End .module-body -->
+    </div> <!-- End .module -->
+    <div style="clear:both;"></div>
+</div> <!-- End .grid_6 -->
+<div style="clear:both;"></div>

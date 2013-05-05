@@ -1,0 +1,49 @@
+<div class="grid_12">
+    <div class="bottom-spacing">
+        <a href="<%= client_info_training_experiences_path(@info) %>" class="button">
+          <span>返回</span>
+        </a>
+    </div>
+</div>
+<div class="grid_5">
+
+    <div class="module">
+         <h2><span>培训详情</span></h2>
+
+         <div class="module-body">
+          <p>
+            <div>培训类型:<%= @training_experience.exam_type.name %></div>
+          </p>
+          <p>
+            <div>添加人:<%= @training_experience.user.username %></div>
+          </p>
+
+          <p>
+            <div>客户姓名:<%= link_to @training_experience.info.name, client_info_path(@training_experience.info) %></div>
+          </p>
+
+          <p>
+            <div>培训开始时间:<%= @training_experience.start_time.strftime('%Y-%m-%d') %></div>
+          </p>
+
+          <p>
+            <div>培训结束时间:<%= @training_experience.finish_time.strftime('%Y-%m-%d') %></div>
+          </p>
+
+          <p>
+            <div>培训机构：
+              <% @training_experience.training_institution_list.each do |info| %>
+                <%= info %>
+              <% end %>
+            </div>
+          </p>
+
+          <p>
+            <div>培训总时间:<%= @training_experience.total_time %></div>
+          </p>
+
+         </div> <!-- End .module-body -->
+    </div> <!-- End .module -->
+    <div style="clear:both;"></div>
+</div> <!-- End .grid_6 -->
+<div style="clear:both;"></div>

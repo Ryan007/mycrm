@@ -1,0 +1,107 @@
+        <!-- Initiate tablesorter script -->
+        <script type="text/javascript">
+            $(document).ready(function() { 
+                $("#myTable") 
+                .tablesorter({
+                    // zebra coloring
+                    widgets: ['zebra'],
+                    // pass the headers argument and assing a object 
+                    headers: { 
+                        // assign the sixth column (we start counting zero) 
+                        6: { 
+                            // disable it by setting the property sorter to false 
+                            sorter: false 
+                        } 
+                    }
+                });
+            //.tablesorterPager({container: $("#pager")}); 
+        }); 
+        </script>
+
+<div class="grid_12">
+    <!-- Button -->
+    <div class="float-left">
+        <% if !current_user.roles.include?(Role.find(8)) %>
+        <a href="<%= cc_add_info_client_infos_path %>" class="button">
+          <span>新建客户<img src="<%= Xmcrm::Application.config.staticfile_server_url %>admin_style/images/plus-small.gif" width="12" height="9" alt="New info" /></span>
+        </a>
+        <% end %>
+    </div>
+    <div class="module">
+
+        <h2><span>客户信息管理</span></h2>
+
+        <div class="module-table-body">
+
+            <table id="myTable" class="tablesorter">
+              <thead>
+                    <tr>
+                        <th style="width:5%">ID</th>
+                        <th style="width:10%">客户名称</th>
+                        <th style="width:10%">客户电话</th>
+                        <th style="width:5%">CC</th>
+                        <th style="width:5%">渠道</th>
+                        <th style="width:15%">预约时间</th>
+                        <th style="width:15%">到访时间</th>
+                        <th style="width:5%">签约</th>
+                        <th style="width:15%">签约时间</th>
+                        <th style="width:15%; text-align:center;">操作</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <% @infos.each do |info| %>
+                    <tr>
+                        <td class="align-center"><%= info.id %></td>
+                        <td><%= link_to info.name, client_info_path(info) %></td>
+                        <td><%= info.cellphone %></td>
+                        <td>
+                            <% if info.cc_id %>
+                                <%= User.find(info.cc_id).username %>
+                            <% end %>
+                        </td>
+                        <td>
+                            <% if info.channel_info_id %>
+                                <%= info.channel_info.channel_category.category_name %>
+                            <% end %>
+                        </td>
+                        <% if info.invations.where("role_id in (5,7)").size == 1%>
+                        <% info.invations.where("role_id in (5,7)").each do |fo| %>
+                        <td>
+                            <% if fo.invit_time%>
+                            <div title="<%= User.find(fo.user_id).username%>"><%= fo.invit_time.strftime('%Y-%m-%d %H:%M')%></div>
+                            <% end %> 
+                        </td>
+                        <td>
+                            <% if fo.confirm_user_id%>
+                            <div title="<%= User.find(fo.confirm_user_id).username%>"><%= fo.come_time.strftime('%Y-%m-%d %H:%M')%></div>
+                            <% end %>
+                        </td>
+                        <% end %>
+                        <% else%>
+                            <td></td>
+                            <td></td>
+                        <% end %>
+                        <td><%= info.is_signed==1 ? "已签约" : "未签约" %></td>
+                        <td>
+                            <% if info.signed_time %>
+                                <%= info.signed_time.strftime('%Y-%m-%d %H:%M') %>
+                            <% end %>
+                        </td>
+                        <td>
+                          <%= link_to "备注", client_info_info_notes_path(info) %> ｜
+                          <%= link_to "预约", client_info_invations_path(info) %>
+                        </td>
+                    </tr> 
+                    <% end %>                             
+                </tbody>
+            </table>
+            
+            <div style="clear: both"></div>
+        </div> <!-- End .module-table-body -->
+    </div> <!-- End .module -->
+    <div class="apple_pagination">
+        <%=h will_paginate @infos, :previous_label => '上一页',  :next_label => '下一页'%>
+    </div>
+</div> <!-- End .grid_12 -->
+<div style="clear: both"></div>

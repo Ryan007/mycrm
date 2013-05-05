@@ -1,0 +1,77 @@
+<!-- Initiate tablesorter script -->
+<script type="text/javascript">
+    $(document).ready(function() { 
+        $("#myTable") 
+        .tablesorter({
+            // zebra coloring
+            widgets: ['zebra'],
+            // pass the headers argument and assing a object 
+            headers: { 
+                // assign the sixth column (we start counting zero) 
+                6: { 
+                    // disable it by setting the property sorter to false 
+                    sorter: false 
+                } 
+            }
+        });
+    //.tablesorterPager({container: $("#pager")}); 
+}); 
+</script>
+
+<div class="grid_12">
+
+    <div class="bottom-spacing">
+
+        <!-- Button -->
+        <div class="float-left">
+            <a href="<%= new_client_nssr_path %>" class="button">
+              <span>新建<img src="<%= Xmcrm::Application.config.staticfile_server_url %>admin_style/images/plus-small.gif" width="12" height="9" alt="New Exam Type" /></span>
+            </a>
+        </div>
+
+    </div>
+
+    <div class="module">
+        <h2><span>未报名学员跟进管理</span></h2>
+
+        <div class="module-table-body">
+
+            <table id="myTable" class="tablesorter">
+              <thead>
+                    <tr>
+                        <th style="width:5%">编号</th>
+                        <th style="width:10%">学生编号</th>
+                        <th style="width:15%">学生名称</th>
+                        <th style="width:15%">学生年龄</th>
+                        <th style="width:15%">创建日期</th>
+                        <th style="width:15%">最后更新</th>
+                        <th style="width:25%">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @nssrs.each do |nssr| %>
+                    <tr>
+                        <td class="align-center"><%= nssr.id %></td>
+                        <td class="align-center"><%= nssr.stu_id %></td>
+                        <td><%= link_to nssr.name, [:client, nssr] %></td>
+                        <td><%= nssr.age %></td>
+                        <td><%= nssr.created_at.strftime('%Y-%m-%d %H:%M') %></td>
+                        <td><%= nssr.updated_at.strftime('%Y-%m-%d %H:%M') %></td>
+                        <td>
+                          <%= link_to "编辑", edit_client_nssr_path(nssr) %> |
+                          <%= link_to "删除", client_nssr_path(nssr), :method => :delete, :confirm => "你确定要删除这个学生吗?" %>
+                        </td>
+                    </tr> 
+                    <% end %>                             
+                </tbody>
+            </table>
+            
+            <div style="clear: both"></div>
+        </div> <!-- End .module-table-body -->
+    </div> <!-- End .module -->
+
+</div> <!-- End .grid_12 -->
+<div style="clear: both"></div>
+<div class="apple_pagination">
+    <%=h will_paginate @nssrs, :previous_label => '上一页',  :next_label => '下一页'%>
+</div>

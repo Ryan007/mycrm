@@ -1,0 +1,233 @@
+<style>
+  h1 a, h1 a:visited, h2 a, h2 a:visited, h3 a, h3 a:visited, h4 a, h4 a:visited, h5 a, h5 a:visited, h6 a, h6 a:visited {
+    color: rgb(255, 255, 255);
+}
+</style>
+<div class="grid_12">
+  <div class="bottom-spacing">
+      <% if current_user.roles.include?(Role.find(3))%>
+      <div class="float-left">
+          <a href="<%= cc_my_client_infos_path %>" class="button">
+            <span>返回</span>
+          </a>
+      </div>
+      <% else %>
+      <div class="float-left">
+          <a href="<%= client_infos_path %>" class="button">
+            <span>返回</span>
+          </a>
+      </div>
+      <% end %>      
+  </div>
+</div>
+
+<div class="grid_5">
+
+    <div class="module">
+         <h2><span>客户信息</span></h2>
+            
+         <div class="module-body">
+            <div id="css3-animated-example">
+              <h3 class="open">个人信息</h3>
+              <div>
+                <div class="content">
+                    <p>
+                      <div>客户名称:</div>
+                      <%= @info.name %>
+                    </p>
+
+                    <p>
+                      <div>客户电话:</div>
+                      <%= @info.cellphone %>
+                    </p>
+
+                    <p>
+                      <div>客户email:</div>
+                      <%= @info.email %>
+                    </p>
+
+                    <p>
+                      <div>客户年龄:</div>
+                      <%= @info.age %>
+                    </p>
+
+                    <p>
+                      <div>客户年级:</div>
+                      <%= @info.grade %>
+                    </p>
+
+                    <p>
+                      <div>就读学校:</div>
+                      <%= @info.current_school %>
+                    </p>
+
+                    <p>
+                      <div>性格类型:</div>
+                      <% if @info.character_type %>
+                        <%= @info.character_type.character_name %>
+                      <% end %>
+                    </p>
+
+                    <p>
+                      <div>省份:</div>
+                      <% if @info.province && @info.province != 0%>
+                      <%= CommonDistrict.find(@info.province).name %>
+                      <% end %>
+                    </p>
+
+                    <p>
+                      <div>城市:</div>
+                      <% if @info.city && @info.city != 0%>
+                      <%= CommonDistrict.find(@info.city).name %>
+                      <% end %>
+                    </p>
+
+                    <p>
+                      <div>地区:</div>
+                      <% if @info.district && @info.district != 0%>
+                      <%= CommonDistrict.find(@info.district).name %>
+                      <% end %>
+                    </p>
+                </div>
+              </div>
+              <h3 class="open">家长信息</h3>
+              <div>
+                <div class="content">
+                  <p>
+                    <div>父亲名称:</div>
+                    <%= @info.father_name %>
+                  </p>
+
+                  <p>
+                    <div>父亲email:</div>
+                    <%= @info.father_email %>
+                  </p>
+
+                  <p>
+                    <div>母亲名称:</div>
+                    <%= @info.mother_name %>
+                  </p>
+
+                  <p>
+                    <div>父亲电话:</div>
+                    <%= @info.father_phone %>
+                  </p>
+
+                  <p>
+                    <div>母亲email:</div>
+                    <%= @info.mother_email %>
+                  </p>
+                </div>
+              </div>
+              <h3 class="open">考试信息</h3>
+              <div>
+                <div class="content">
+                  <p>
+                    <div>期望分数:</div>
+                    <%= @info.expect_score %>
+                  </p>
+
+                  <p>
+                    <div>期望专业:</div>
+                    <%= @info.expect_major %>
+                  </p>
+
+                  <p>
+                    <div>是否参加过考试:</div>
+                    <% if @info.is_examed %>
+                      <%= (@info.is_examed==0) ? "否" : "是" %>
+                    <% end %>
+                  </p>
+
+                  <p>
+                    <div>是否参加过培训:</div>
+                    <% if @info.is_trained %>
+                      <%= (@info.is_trained==0) ? "否" : "是" %>
+                    <% end %>
+                  </p>
+
+                  <p>
+                    <div>期望学校排名:</div>
+                    <%= @info.expect_colleage_ranking %>
+                  </p>
+
+                  <p>
+                    <div>期望考试:</div>
+                    <% if @info.expect_exam %>
+                    <%= Exam.find(@info.expect_exam).name %>
+                    <% end %>
+                  </p>
+
+                  <p>
+                    <div>期望听力分数:</div>
+                    <%= @info.expect_listening_score %>
+                  </p>
+
+                  <p>
+                    <div>期望阅读分数:</div>
+                    <%= @info.expect_reading_score %>
+                  </p>
+
+                  <p>
+                    <div>期望写作分数:</div>
+                    <%= @info.expect_writing_score %>
+                  </p>
+
+                  <p>
+                    <div>期望口语分数:</div>
+                    <%= @info.expect_oral_score %>
+                  </p>
+                </div>
+              </div>
+              <h3 class="open">其它信息</h3>
+              <div>
+                <div class="content">
+                  <p>
+                    <div>话语权:</div>
+                    <%= @info.decision_power %>
+                  </p>
+                  <p>
+                    <div>客户CC:</div>
+                    <% if @info.cc_id %>
+                      <% User.find(@info.cc_id).username %>
+                    <% end %>
+                  </p>
+                  <p>
+                    <div>核心需求:</div>
+                    <%= @info.core_question %>
+                  </p>
+                  <p>
+                    <div>核心需求答案:</div>
+                    <%= @info.core_question_answer %>
+                  </p>
+                  <p>
+                    <div>渠道人员:</div>
+                    <% if @info.channel_info %>
+                      <%= @info.channel_info.name %>
+                    <% end %>
+                  </p>
+                </div>
+              </div>
+
+            </div>
+            <script>
+              $("#css3-animated-example").collapse({
+                accordion: true,
+                persist: true,
+                open: function() {
+                  this.addClass("open");
+                  this.css({ height: this.children().outerHeight() });
+                },
+                close: function() {
+                  this.css({ height: "0px" });
+                  this.removeClass("open");
+                }
+              });
+            </script>
+            <!-- END Showing and hiding with CSS -->
+            
+         </div> <!-- End .module-body -->
+    </div> <!-- End .module -->
+    <div style="clear:both;"></div>
+</div> <!-- End .grid_6 -->
+<div style="clear:both;"></div>

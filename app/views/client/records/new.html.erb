@@ -1,0 +1,62 @@
+<script type="text/javascript" charset="utf-8">
+  jQuery(document).ready(function(){
+    // binds form submission and fields to the validation engine
+    jQuery("#new_record").validationEngine();
+  });
+
+</script> 			
+<div class="grid_12">
+	<div class="bottom-spacing">
+        <a href="<%= client_info_session_records_path(@info, @session)  %>" class="button">
+          <span>返回</span>
+        </a>
+    </div>
+</div>
+<div class="grid_5">
+  <div class="module">
+  <h2><span>会话内容</span></h2>
+    <div class="module-body">
+      <% @records.each do |record| %>
+        <div>
+          <div style="display:inline;"><%= (record.is_me == 1) ? "我说" : "客户说" %>
+          (<%= record.created_at.strftime('%Y-%m-%d %H:%M') %>):</div>
+          <div style="display:inline;"><%= record.content %></div>
+        </div>
+      <% end %>
+    	<h4 style="margin-top:15px;">添加客户说:</h4>
+        <%= form_for([:client, @info, @session, @record]) do |f| %>
+          <p>
+            客户说：<%= f.text_field :content, :class => "input-medium validate[required]"%>
+          </p>
+
+          <%= f.hidden_field :session_id, :value => "#{@session.id}" %>
+
+          <%= f.hidden_field :is_me, :value => "0" %>
+
+          <fieldset>
+              <input class="submit-green" type="submit" value="继续添加" /> 
+          </fieldset> 
+
+         <% end %>
+
+    	<h4>添加我说:</h4>
+        <%= form_for([:client, @info, @session, @record]) do |f| %>
+          <p>
+            我说：<%= f.text_field :content, :class => "input-medium validate[required]"%>
+          </p>
+
+          <%= f.hidden_field :session_id, :value => "#{@session.id}" %>
+
+          <%= f.hidden_field :is_me, :value => "1" %>
+
+          <fieldset>
+              <input class="submit-green" type="submit" value="继续添加" /> 
+          </fieldset> 
+
+         <% end %>
+    </div> <!-- End .module-body -->
+</div> <!-- End .module -->
+<div style="clear:both;"></div>
+<div style="clear:both;"></div>
+
+

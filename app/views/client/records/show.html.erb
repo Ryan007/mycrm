@@ -1,0 +1,25 @@
+<div class="grid_12">
+    <div class="bottom-spacing">
+        <a href="<%= client_info_session_records_path(@info, @session) %>" class="button">
+          <span>返回</span>
+        </a>
+    </div>
+</div>
+<div class="grid_5">
+
+    <div class="module">
+         <h2><span>会话</span></h2>
+
+         <div class="module-body">
+            <p>
+				<div>内容:<%= @record.content %></div>
+			</p>
+			<p>
+				<div>会话人:<%= (@record.is_me == 1)?"我说":"客户说" %></div>
+			</p>
+
+         </div> <!-- End .module-body -->
+    </div> <!-- End .module -->
+    <div style="clear:both;"></div>
+</div> <!-- End .grid_6 -->
+<div style="clear:both;"></div>

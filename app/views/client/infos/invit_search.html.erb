@@ -1,0 +1,128 @@
+<script>
+    $(function() {
+        $( "#datepicker" ).datepicker();
+        $( "#datepicker" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
+        $( "#datepicker_1" ).datepicker();
+        $( "#datepicker_1" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
+
+        $('.role').each(function(){
+            var role = $(this).attr('value');
+            if(role == "<%= @role %>") {
+                $(this).attr('checked', 'true');
+            }
+        });
+
+        $('.status').each(function(){
+            var status = $(this).attr('value');
+            if(status == "<%= @status %>") {
+                $(this).attr('checked', 'true');
+            }
+        });
+
+        $('#datepicker').val("<%= @start%>");
+        $('#datepicker_1').val("<%= @end%>");
+    });
+</script>
+
+
+
+<div class="grid_12">
+
+    <div class="bottom-spacing">
+        <h4>预约客户查询</h4>
+        <%= form_tag(invit_search_client_infos_path, :method => :get) do %>
+            <p>
+                开始日期: <input type="text" id="datepicker" name="start_time" class="start_time">
+                结束日期: <input type="text" id="datepicker_1" name="end_time" class="end_time">
+                <input type="radio" name="status" class="status" value="0">未到访<input type="radio"  class="status" value="1"
+                name="status">已到访||<input type="radio" class="role" name="role" value="3">督导约访 <input type="radio" name="role" class="role" value="7">CallCenter约访
+            </p>
+          <%= submit_tag("查询") %>
+        <% end %>
+    </div>
+
+    <div class="module">
+        <h2>
+            <span>
+                <ul class="LinkUl">
+                    <div style="display: inline;">客户信息管理</div>
+                    <div style="display: inline; color:blue; margin-left:4px;">
+                        共有<%= @invations.count%>条预约
+                    </div>
+                    <div style="display: inline;"><%= Time.zone.now.strftime('%Y-%m-%d')%></div>
+                </ul>
+            </span>
+        </h2>
+
+        <div class="module-table-body">
+
+            <table id="myTable" class="tablesorter">
+              <thead>
+                    <tr>
+                        <th style="width:5%">ID</th>
+                        <th style="width:5%">客户姓名</th>
+                        <th style="width:5%">CC</th>
+                        <th style="width:5%">状态</th>
+                        <th style="width:5%">签约</th>
+                        <th style="width:5%">预约人</th>
+                        <th style="width:15%">预约时间</th>
+                        <th style="width:10%">确认到访人</th>
+                        <th style="width:15%">到访时间</th>
+                        <th style="width:15%">创建日期</th>
+                        <th style="width:10%">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @invations.each do |invation| %>
+                    <tr>
+                        <td class="align-center"><%= invation.id %></td>
+                        <td><%= link_to invation.info.name, client_info_path(invation.info) %></td>
+                        <td>
+                            <% if invation.info.cc_id%>
+                                <%= User.find(invation.info.cc_id).username%>
+                            <% end %>
+                        </td>
+                        <td><%= invation.status==1 ? "已到访" : "未到访" %></td>
+                        <td><%= invation.info.is_signed==1 ? "已签约" : "未签约" %></td>
+                        <td><%= User.find(invation.user_id).username%></td>
+                        <td>
+                            <% if invation.invit_time %>
+                            <%= invation.invit_time.strftime('%Y-%m-%d %H:%M') %>
+                            <% end %>
+                        </td>
+                        <td>
+                            <% if invation.confirm_user_id %>
+                                <%= User.find(invation.confirm_user_id).username %>
+                            <% end %>
+                        </td>
+                        <td>
+                            <% if invation.come_time %>
+                                <%= invation.come_time.strftime('%Y-%m-%d %H:%M') %>
+                            <% end %>
+                        </td>
+                        <td><%= invation.created_at.strftime('%Y-%m-%d %H:%M') %></td>
+                        <td>
+                            <% if invation.status == 0%>
+                                <%= link_to '确认到访', edit_client_info_invation_path(invation.info, invation.id) %> 
+                                <% if !invation.info.cc_id %>
+                                | <%= link_to '分配cc', "/client/infos/distribute_cc?info_id=#{invation.info.id}" %>
+                                <% end %>
+                            <% else %>
+                                <div style="color:grey;">确认到访</div>
+                            <% end %>
+                        </td>
+                    </tr> 
+                    <% end %>                             
+                </tbody>
+            </table>
+            
+            <div style="clear: both"></div>
+        </div> <!-- End .module-table-body -->
+    </div> <!-- End .module -->
+
+</div> <!-- End .grid_12 -->
+<div style="clear: both"></div>
+
+<div class="apple_pagination">
+    <%=h will_paginate @invations, :previous_label => '上一页',  :next_label => '下一页'%>
+</div>

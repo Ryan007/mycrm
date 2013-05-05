@@ -1,0 +1,40 @@
+<script type="text/javascript">
+    $(function() {
+            $( "#datepicker_1" ).datetimepicker();
+            $( "#datepicker_1" ).datetimepicker( "option", "dateFormat", "yy-mm-dd" );
+            $("form").submit(function(e){
+               if($( "#datepicker_1" ).val() == ""){
+                  alert("请选择时间!");
+                  $( "#datepicker_1" ).focus();
+                  return false;
+               }
+            });
+    });
+</script>
+
+<div class="grid_5">
+  <div class="module">
+  <h2><span>客户考试</span></h2>
+
+    <div class="module-body">
+        <%= form_for([:client, @info, @invation]) do |f| %>
+
+          <%= f.hidden_field :info_id, :value => "#{@info.id}" %>
+
+          <p>
+            <label>预约时间</label>
+            <input type="text" id="datepicker_1" name="invation[invit_time]" />
+          </p>
+
+          <fieldset>
+              <input class="submit-green" type="submit" value="Submit" /> 
+              <input class="submit-gray" type="submit" value="Cancel" />
+          </fieldset> 
+
+          <% end %>
+        </div>
+        </div> <!-- End .module-body -->
+    </div> <!-- End .module -->
+  <div style="clear:both;"></div>
+</div> <!-- End .grid_6 -->
+<div style="clear:both;"></div>

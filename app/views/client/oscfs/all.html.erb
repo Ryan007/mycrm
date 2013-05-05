@@ -1,0 +1,61 @@
+<!-- Initiate tablesorter script -->
+<script type="text/javascript">
+    $(document).ready(function() { 
+        $("#myTable") 
+        .tablesorter({
+            // zebra coloring
+            widgets: ['zebra'],
+            // pass the headers argument and assing a object 
+            headers: { 
+                // assign the sixth column (we start counting zero) 
+                6: { 
+                    // disable it by setting the property sorter to false 
+                    sorter: false 
+                } 
+            }
+        });
+    //.tablesorterPager({container: $("#pager")}); 
+}); 
+</script>
+
+<div class="grid_12">
+
+    <div class="module">
+        <h2><span>老学员跟进管理</span></h2>
+
+        <div class="module-table-body">
+
+            <table id="myTable" class="tablesorter">
+              <thead>
+                    <tr>
+                        <th style="width:5%">编号</th>
+                        <th style="width:10%">学生编号</th>
+                        <th style="width:15%">学生名称</th>
+                        <th style="width:15%">学生性别</th>
+                        <th style="width:15%">创建日期</th>
+                        <th style="width:15%">最后更新</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @oscfs.each do |oscf| %>
+                    <tr>
+                        <td class="align-center"><%= oscf.id%></td>
+                        <td class="align-center"><%= oscf.stu_id %></td>
+                        <td><%= link_to oscf.name, [:client, oscf]  %></td>
+                        <td><%= oscf.gender==0 ? "男" : "女" %></td>
+                        <td><%= oscf.created_at.strftime('%Y-%m-%d %H:%M') %></td>
+                        <td><%= oscf.updated_at.strftime('%Y-%m-%d %H:%M') %></td>
+                    </tr> 
+                    <% end %>                             
+                </tbody>
+            </table>
+            
+            <div style="clear: both"></div>
+        </div> <!-- End .module-table-body -->
+    </div> <!-- End .module -->
+
+</div> <!-- End .grid_12 -->
+<div style="clear: both"></div>
+<div class="apple_pagination">
+    <%=h will_paginate @oscfs, :previous_label => '上一页',  :next_label => '下一页'%>
+</div>

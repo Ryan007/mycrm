@@ -1,0 +1,2 @@
+module NssrsHelper
+end
