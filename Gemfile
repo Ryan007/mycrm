@@ -68,7 +68,7 @@ group :development do
   gem 'rvm-capistrano'
 end
 
-# gem 'passenger'
+gem "passenger", "~> 3.0.19"
 
 
 # To use debugger

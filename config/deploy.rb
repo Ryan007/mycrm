@@ -1,11 +1,10 @@
-$:.unshift(File.expand_path('./lib', ENV['rvm_path']))
 require 'rvm/capistrano'
 require 'bundler/capistrano'
 
 set :rails_env, 'production'
 set :rvm_type, :system
-set :rvm_ruby_string, '1.9.3-p125@rails323_r193_xmcrm'
-set :rvm_path, '/usr/local/rvm/'
+set :rvm_ruby_string, '1.9.3-p392@rails3213_crm'
+set :rvm_path, '/home/ketty/.rvm/'
 set :rvm_bin_path, "#{rvm_path}/bin"
 set :rvm_lib_path, "#{rvm_path}/lib"
 set :deploy_via, :remote_cache
@@ -23,16 +22,16 @@ set :normalize_asset_timestamps, false
 #   'BUNDLE_PATH'     => "#{rvm_path}/gems/#{rvm_ruby_string}"
 # }
 
-set :application, "crm.xiaoma.com"
-set :repository,  "ssh://wch@xsudo.com:22229/opt/git/xmcrm.git"
+set :application, "crm.cust.com"
+set :repository,  "git@github.com:Ryan007/mycrm.git"
 
 set :scm, :git
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
 
-role :web, "crm.xiaoma.com"                          # Your HTTP server, Apache/etc
-role :app, "crm.xiaoma.com"                          # This may be the same as your `Web` server
-role :db,  "crm.xiaoma.com", :primary => true # This is where Rails migrations will run
+role :web, "crm.cust.com"                          # Your HTTP server, Apache/etc
+role :app, "crm.cust.com"                          # This may be the same as your `Web` server
+role :db,  "crm.cust.com", :primary => true # This is where Rails migrations will run
 #role :db,  "your slave db-server here"
 set :port, 22229
 set :use_sudo, true
@@ -43,7 +42,7 @@ default_run_options[:pty] = true
 
 
 set :branch, "master"
-set :deploy_to, "/home/wch/crm/xiaoma.com/htdocs/#{application}"
+set :deploy_to, "/home/ketty/www/crm/cust.com/htdocs/#{application}"
 
 
 set :keep_releases, 5
@@ -55,12 +54,12 @@ task :symlink_database_yml do
   run "ln -sfn #{shared_path}/config/environments/production.rb #{release_path}/config/environments/production.rb"
 end
 
-after "bundle:install", "symlink_database_yml"
-after "deploy:symlink", "custom:set_permissions_for_runtime"
+# after "bundle:install", "symlink_database_yml"
+# after "deploy:symlink", "custom:set_permissions_for_runtime"
 
 namespace :deploy do
   task :start, :roles => :web, :except => { :no_release => true } do 
-    run "cd #{current_path} && bundle exec passenger start --socket /tmp/crm.xiaoma.com.socket -d -e production --pid-file /tmp/xmcrm.pid"
+    run "cd #{current_path} && bundle exec passenger start --socket /tmp/crm.cust.com.socket -d -e production --pid-file /tmp/xmcrm.pid"
     run "cd /etc/init.d && #{try_sudo} ./nginx start"
   end
   task :stop, :roles => :web, :except => { :no_release => true } do
@@ -69,7 +68,7 @@ namespace :deploy do
   end
   task :restart, :roles => :web, :except => { :no_release => true } do
     run "cd #{current_path} && #{passenger_cmd} stop --pid-file /tmp/xmcrm.pid"
-    run "cd #{current_path} && #{passenger_cmd} start --socket /tmp/crm.xiaoma.com.socket -d -e production --pid-file /tmp/xmcrm.pid"
+    run "cd #{current_path} && #{passenger_cmd} start --socket /tmp/crm.cust.com.socket -d -e production --pid-file /tmp/xmcrm.pid"
     run "cd /etc/init.d && #{try_sudo} ./nginx restart"
   end
 end
