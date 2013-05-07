@@ -1,6 +1,6 @@
-source 'http://ruby.taobao.org'
-# source "https://"
-gem 'rails', '3.2.3'
+#source 'http://ruby.taobao.org'
+source "https://rubygems.org"
+gem 'rails', '3.2.13'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -14,8 +14,8 @@ gem 'dynamic_form'
 
 gem 'execjs'
 
-gem 'therubyracer'
-
+gem 'libv8', '~> 3.11.8.12'
+gem "therubyracer", "~> 0.11.4"
 gem 'devise'
 gem 'devise-encryptable'
 gem "cancan"
