@@ -28,9 +28,9 @@ set :repository,  "git@github.com:Ryan007/mycrm.git"
 set :scm, :git
 
 
-role :web, "crm.cust.com"                          # Your HTTP server, Apache/etc
-role :app, "crm.cust.com"                          # This may be the same as your `Web` server
-role :db,  "crm.cust.com", :primary => true # This is where Rails migrations will run
+role :web, "ketty"                          # Your HTTP server, Apache/etc
+role :app, "ketty"                          # This may be the same as your `Web` server
+role :db,  "ketty", :primary => true # This is where Rails migrations will run
 #role :db,  "your slave db-server here"
 # set :port, 22229
 set :use_sudo, true
