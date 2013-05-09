@@ -3,6 +3,10 @@
 	{
 		"selected_items":
 		[
+			[
+				"n",
+				"nginx"
+			]
 		]
 	},
 	"buffers":
@@ -12,6 +16,14 @@
 			"settings":
 			{
 				"buffer_size": 3101,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "config/deploy.rb",
+			"settings":
+			{
+				"buffer_size": 2927,
 				"line_ending": "Unix"
 			}
 		}
@@ -52,6 +64,7 @@
 	},
 	"file_history":
 	[
+		"/Users/ryan007/xiaoma/mycrm/Gemfile",
 		"/Users/ryan007/xiaoma/mock_exam/app/controllers/home_controller.rb",
 		"/Users/ryan007/xiaoma/xmcrm/xmcrm.sublime-project",
 		"/Users/ryan007/xiaoma/mock_exam/app/views/users/index.html.erb",
@@ -197,6 +210,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"crm.xiaoma.com",
+			"'1.9.3-p125@rails323_r193_xmcrm'",
+			"1.9.3-p125@rails323_r193_xmcrm",
+			"rails323_r193_xmcrm",
 			"password:",
 			"name",
 			"roles",
@@ -226,6 +243,12 @@
 		"regex": false,
 		"replace_history":
 		[
+			"crm.cust.com",
+			"'1.9.3-p392@rails3213_crm'",
+			"\n'1.9.3-p392@rails3.2.13_crm'",
+			"\n1.9.3-p392@rails3.2.13_crm",
+			"\nrails3.2.13_crm",
+			"rails3.2.13_crm\n",
 			"\n",
 			"password: 1q2w3e4r",
 			"username",
@@ -243,6 +266,7 @@
 	"groups":
 	[
 		{
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -315,6 +339,34 @@
 						"zoom_level": 1.0
 					},
 					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "config/deploy.rb",
+					"settings":
+					{
+						"buffer_size": 2927,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								920,
+								920
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 18.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
 				}
 			]
 		}
@@ -360,6 +412,10 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"ge",
+				"Gemfile"
+			],
 			[
 				"route",
 				"config/routes.rb"
