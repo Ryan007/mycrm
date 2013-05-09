@@ -34,7 +34,7 @@ role :db,  "crm.cust.com", :primary => true # This is where Rails migrations wil
 #role :db,  "your slave db-server here"
 # set :port, 22229
 set :use_sudo, true
-set :user, "crm.cust.com"    # 上传了ssh的public key
+set :user, "ketty"    # 上传了ssh的public key
 # set :web_user, "nobody"
 #set :password, "passwd"
 default_run_options[:pty] = true

@@ -23,7 +23,7 @@
     <div class="float-left">
         <% if !current_user.roles.include?(Role.find(8)) %>
         <a href="<%= cc_add_info_client_infos_path %>" class="button">
-          <span>新建客户<img src="<%= Xmcrm::Application.config.staticfile_server_url %>admin_style/images/plus-small.gif" width="12" height="9" alt="New info" /></span>
+          <span>新建客户<img src="<%= Mycrm::Application.config.staticfile_server_url %>admin_style/images/plus-small.gif" width="12" height="9" alt="New info" /></span>
         </a>
         <% end %>
     </div>

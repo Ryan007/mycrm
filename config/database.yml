@@ -11,7 +11,7 @@ development:
 
 test: &test
     adapter: mysql2
-    database: xmcrm_test
+    database: Mycrm_test
     pool: 5
     timeout: 5000
     encoding: utf8

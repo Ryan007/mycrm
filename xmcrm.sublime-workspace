@@ -66,7 +66,7 @@
 	[
 		"/Users/ryan007/xiaoma/mycrm/Gemfile",
 		"/Users/ryan007/xiaoma/mock_exam/app/controllers/home_controller.rb",
-		"/Users/ryan007/xiaoma/xmcrm/xmcrm.sublime-project",
+		"/Users/ryan007/xiaoma/Mycrm/Mycrm.sublime-project",
 		"/Users/ryan007/xiaoma/mock_exam/app/views/users/index.html.erb",
 		"/Users/ryan007/xiaoma/mock_exam/spec/controllers/users_controller_spec.rb",
 		"/Users/ryan007/xiaoma/mock_exam/config/routes.rb",
@@ -106,17 +106,17 @@
 		"/Users/ryan007/xiaoma/simple_exam/app/views/admin/users/save_roles.html.erb",
 		"/Users/ryan007/xiaoma/simple_exam/app/models/user.rb",
 		"/Users/ryan007/xiaoma/simple_exam/app/models/role.rb",
-		"/Users/ryan007/xiaoma/xmcrm/config/routes.rb",
+		"/Users/ryan007/xiaoma/Mycrm/config/routes.rb",
 		"/Users/ryan007/xiaoma/simple_exam/app/views/admin/users/index.html.erb",
 		"/Users/ryan007/xiaoma/simple_exam/app/views/admin/users/show.html.erb",
-		"/Users/ryan007/xiaoma/xmcrm/spec/views/channel_categories/show.html.erb_spec.rb",
+		"/Users/ryan007/xiaoma/Mycrm/spec/views/channel_categories/show.html.erb_spec.rb",
 		"/Users/ryan007/xiaoma/simple_exam/app/controllers/users_controller_bak.rb",
-		"/Users/ryan007/xiaoma/xmcrm/app/controllers/admin/users_controller.rb",
-		"/Users/ryan007/xiaoma/xmcrm/app/models/user.rb",
-		"/Users/ryan007/xiaoma/xmcrm/app/models/role.rb",
+		"/Users/ryan007/xiaoma/Mycrm/app/controllers/admin/users_controller.rb",
+		"/Users/ryan007/xiaoma/Mycrm/app/models/user.rb",
+		"/Users/ryan007/xiaoma/Mycrm/app/models/role.rb",
 		"/Users/ryan007/xiaoma/simple_exam/app/views/options/index.html.erb",
-		"/Users/ryan007/xiaoma/xmcrm/app/views/admin/users/roles.html.erb",
-		"/Users/ryan007/xiaoma/xmcrm/app/views/admin/users/_form.html.erb",
+		"/Users/ryan007/xiaoma/Mycrm/app/views/admin/users/roles.html.erb",
+		"/Users/ryan007/xiaoma/Mycrm/app/views/admin/users/_form.html.erb",
 		"/Users/ryan007/xiaoma/simple_exam/app/views/admin/users/roles.rb",
 		"/Users/ryan007/xiaoma/simple_exam/config/routes.rb",
 		"/Users/ryan007/xiaoma/simple_exam/db/migrate/20130313088409_create_roles.rb",
@@ -124,9 +124,9 @@
 		"/Users/ryan007/xiaoma/simple_exam/app/controllers/admin/base_controller.rb",
 		"/Users/ryan007/xiaoma/simple_exam/app/views/admin/users/_form.html.erb",
 		"/Users/ryan007/xiaoma/simple_exam/app/views/users/index.html.erb",
-		"/Users/ryan007/xiaoma/xmcrm/app/controllers/admin/base_controller.rb",
+		"/Users/ryan007/xiaoma/Mycrm/app/controllers/admin/base_controller.rb",
 		"/Users/ryan007/xiaoma/simple_exam/app/controllers/users_controller.rb",
-		"/Users/ryan007/xiaoma/xmcrm/app/views/users/registrations/edit.html.erb",
+		"/Users/ryan007/xiaoma/Mycrm/app/views/users/registrations/edit.html.erb",
 		"/Users/ryan007/xiaoma/simple_exam/app/views/admin/users/untitled",
 		"/Users/ryan007/xiaoma/simple_exam/spec/requests/users_spec.rb",
 		"/Users/ryan007/xiaoma/simple_exam/config/initializers/devise.rb",
@@ -211,9 +211,9 @@
 		"find_history":
 		[
 			"crm.xiaoma.com",
-			"'1.9.3-p125@rails323_r193_xmcrm'",
-			"1.9.3-p125@rails323_r193_xmcrm",
-			"rails323_r193_xmcrm",
+			"'1.9.3-p125@rails323_r193_Mycrm'",
+			"1.9.3-p125@rails323_r193_Mycrm",
+			"rails323_r193_Mycrm",
 			"password:",
 			"name",
 			"roles",
@@ -474,11 +474,11 @@
 			],
 			[
 				"roles.html",
-				"xmcrm/app/views/admin/users/roles.html.erb"
+				"Mycrm/app/views/admin/users/roles.html.erb"
 			],
 			[
 				"crmusercon",
-				"xmcrm/app/controllers/admin/users_controller.rb"
+				"Mycrm/app/controllers/admin/users_controller.rb"
 			],
 			[
 				"use",
@@ -486,7 +486,7 @@
 			],
 			[
 				"user_form",
-				"xmcrm/app/views/admin/users/_form.html.erb"
+				"Mycrm/app/views/admin/users/_form.html.erb"
 			],
 			[
 				"userinde",
@@ -498,11 +498,11 @@
 			],
 			[
 				"userscont",
-				"xmcrm/app/controllers/admin/users_controller.rb"
+				"Mycrm/app/controllers/admin/users_controller.rb"
 			],
 			[
 				"userind",
-				"xmcrm/app/views/users/registrations/edit.html.erb"
+				"Mycrm/app/views/users/registrations/edit.html.erb"
 			],
 			[
 				"usercont",

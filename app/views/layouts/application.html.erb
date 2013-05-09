@@ -2,59 +2,59 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<title>Xmcrm</title>
+		<title>Mycrm</title>
        
         <!-- CSS Reset -->
-		<link rel="stylesheet" type="text/css" href="<%= Xmcrm::Application.config.staticfile_server_url %>admin_style/style/reset.css" media="screen" />      
+		<link rel="stylesheet" type="text/css" href="<%= Mycrm::Application.config.staticfile_server_url %>admin_style/style/reset.css" media="screen" />      
         <!-- Fluid 960 Grid System - CSS framework -->
-		<link rel="stylesheet" type="text/css" href="<%= Xmcrm::Application.config.staticfile_server_url %>admin_style/style/grid.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="<%= Mycrm::Application.config.staticfile_server_url %>admin_style/style/grid.css" media="screen" />
         <!-- jquery UI -->
-        <link rel="stylesheet" href="<%= Xmcrm::Application.config.staticfile_server_url %>jquery/south-street/jquery-ui-1.8.18.custom.css" type="text/css"/>
+        <link rel="stylesheet" href="<%= Mycrm::Application.config.staticfile_server_url %>jquery/south-street/jquery-ui-1.8.18.custom.css" type="text/css"/>
 
-        <link rel="stylesheet" href="<%= Xmcrm::Application.config.staticfile_server_url %>info.css" type="text/css"/>
+        <link rel="stylesheet" href="<%= Mycrm::Application.config.staticfile_server_url %>info.css" type="text/css"/>
 		
         <!-- IE Hacks for the Fluid 960 Grid System -->
         <!--[if IE 6]>
-        <link rel="stylesheet" type="text/css" href="<%= Xmcrm::Application.config.staticfile_server_url %>admin_style/style/ie6.css" tppabs="http://www.xooom.pl/work/magicadmin/css/ie6.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="<%= Mycrm::Application.config.staticfile_server_url %>admin_style/style/ie6.css" tppabs="http://www.xooom.pl/work/magicadmin/css/ie6.css" media="screen" />
         <![endif]-->
 		<!--[if IE 7]>
-        <link rel="stylesheet" type="text/css" href="<%= Xmcrm::Application.config.staticfile_server_url %>admin_style/style/ie.css" tppabs="http://www.xooom.pl/work/magicadmin/css/ie.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="<%= Mycrm::Application.config.staticfile_server_url %>admin_style/style/ie.css" tppabs="http://www.xooom.pl/work/magicadmin/css/ie.css" media="screen" />
         <![endif]-->
         
         <!-- Main stylesheet -->
-        <link rel="stylesheet" type="text/css" href="<%= Xmcrm::Application.config.staticfile_server_url %>admin_style/style/styles.css" media="screen" />        
+        <link rel="stylesheet" type="text/css" href="<%= Mycrm::Application.config.staticfile_server_url %>admin_style/style/styles.css" media="screen" />        
         <!-- WYSIWYG editor stylesheet -->
-        <link rel="stylesheet" type="text/css" href="<%= Xmcrm::Application.config.staticfile_server_url %>admin_style/style/jquery.wysiwyg.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="<%= Mycrm::Application.config.staticfile_server_url %>admin_style/style/jquery.wysiwyg.css" media="screen" />
         <!-- Table sorter stylesheet -->
-        <link rel="stylesheet" type="text/css" href="<%= Xmcrm::Application.config.staticfile_server_url %>admin_style/style/tablesorter.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="<%= Mycrm::Application.config.staticfile_server_url %>admin_style/style/tablesorter.css" media="screen" />
         <!-- Thickbox stylesheet -->
-        <link rel="stylesheet" type="text/css" href="<%= Xmcrm::Application.config.staticfile_server_url %>admin_style/style/thickbox.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="<%= Mycrm::Application.config.staticfile_server_url %>admin_style/style/thickbox.css" media="screen" />
         <!-- Themes. Below are several color themes. Uncomment the line of your choice to switch to different color. All styles commented out means blue theme. -->
-        <link rel="stylesheet" type="text/css" href="<%= Xmcrm::Application.config.staticfile_server_url %>admin_style/style/theme-blue.css" media="screen" />
-        <link rel="stylesheet" href="<%= Xmcrm::Application.config.staticfile_server_url %>jquery/fullcalendar/fullcalendar.css" type="text/css"/>
-        <link rel="stylesheet" href="<%= Xmcrm::Application.config.staticfile_server_url %>jquery/validation/validationEngine.jquery.css" type="text/css"/>
-        <link rel="stylesheet" href="<%= Xmcrm::Application.config.staticfile_server_url %>jquery/fullcalendar/fullcalendar.print.css" type="text/css" media='print'/>
-        <link rel="stylesheet" href="<%= Xmcrm::Application.config.staticfile_server_url %>jquery/fullcalendar/cupertino/theme.css" type="text/css" media='print'/>
+        <link rel="stylesheet" type="text/css" href="<%= Mycrm::Application.config.staticfile_server_url %>admin_style/style/theme-blue.css" media="screen" />
+        <link rel="stylesheet" href="<%= Mycrm::Application.config.staticfile_server_url %>jquery/fullcalendar/fullcalendar.css" type="text/css"/>
+        <link rel="stylesheet" href="<%= Mycrm::Application.config.staticfile_server_url %>jquery/validation/validationEngine.jquery.css" type="text/css"/>
+        <link rel="stylesheet" href="<%= Mycrm::Application.config.staticfile_server_url %>jquery/fullcalendar/fullcalendar.print.css" type="text/css" media='print'/>
+        <link rel="stylesheet" href="<%= Mycrm::Application.config.staticfile_server_url %>jquery/fullcalendar/cupertino/theme.css" type="text/css" media='print'/>
         
         
 		<!-- JQuery engine script-->
-		<script type="text/javascript" src="<%= Xmcrm::Application.config.staticfile_server_url %>jquery/jquery_1.7.1.min.js"></script>
-        <script type="text/javascript" src="<%= Xmcrm::Application.config.staticfile_server_url %>jquery/jquery-ui-1.8.18.custom.min.js"></script>
-		<script type="text/javascript" src="<%= Xmcrm::Application.config.staticfile_server_url %>jquery_ujs.js"></script>      
+		<script type="text/javascript" src="<%= Mycrm::Application.config.staticfile_server_url %>jquery/jquery_1.7.1.min.js"></script>
+        <script type="text/javascript" src="<%= Mycrm::Application.config.staticfile_server_url %>jquery/jquery-ui-1.8.18.custom.min.js"></script>
+		<script type="text/javascript" src="<%= Mycrm::Application.config.staticfile_server_url %>jquery_ujs.js"></script>      
 		<!-- JQuery WYSIWYG plugin script -->
-		<script type="text/javascript" src="<%= Xmcrm::Application.config.staticfile_server_url %>admin_style/js/jquery.wysiwyg.js"></script>
+		<script type="text/javascript" src="<%= Mycrm::Application.config.staticfile_server_url %>admin_style/js/jquery.wysiwyg.js"></script>
         <!-- JQuery tablesorter plugin script-->
-		<script type="text/javascript" src="<%= Xmcrm::Application.config.staticfile_server_url %>admin_style/js/jquery.tablesorter.min.js"></script>
+		<script type="text/javascript" src="<%= Mycrm::Application.config.staticfile_server_url %>admin_style/js/jquery.tablesorter.min.js"></script>
 		<!-- JQuery pager plugin script for tablesorter tables -->
-		<script type="text/javascript" src="<%= Xmcrm::Application.config.staticfile_server_url %>admin_style/js/jquery.tablesorter.pager.js"></script>
-        <script src="<%= Xmcrm::Application.config.staticfile_server_url %>jquery/validation/languages/jquery.validationEngine-zh_CN.js" type="text/javascript" charset="utf-8"></script>
-        <script src="<%= Xmcrm::Application.config.staticfile_server_url %>jquery/validation/jquery.validationEngine.js" type="text/javascript" charset="utf-8"></script>
-        <script type="text/javascript" src="<%= Xmcrm::Application.config.staticfile_server_url %>jquery/jquery.ui.datepicker-zh-CN.js"></script>
-        <script type="text/javascript" src="<%= Xmcrm::Application.config.staticfile_server_url %>jquery/jquery-ui-timepicker-addon.js"></script>
-        <script type="text/javascript" src="<%= Xmcrm::Application.config.staticfile_server_url %>jquery/fullcalendar/fullcalendar.min.js"></script>
-        <script type="text/javascript" src="<%= Xmcrm::Application.config.staticfile_server_url %>jquery/collapse/jquery.collapse.js"></script>
-        <script type="text/javascript" src="<%= Xmcrm::Application.config.staticfile_server_url %>jquery/collapse/jquery.collapse_storage.js"></script>
-        <script type="text/javascript" src="<%= Xmcrm::Application.config.staticfile_server_url %>jquery/collapse/jquery.collapse_cookie_storage.js"></script>
+		<script type="text/javascript" src="<%= Mycrm::Application.config.staticfile_server_url %>admin_style/js/jquery.tablesorter.pager.js"></script>
+        <script src="<%= Mycrm::Application.config.staticfile_server_url %>jquery/validation/languages/jquery.validationEngine-zh_CN.js" type="text/javascript" charset="utf-8"></script>
+        <script src="<%= Mycrm::Application.config.staticfile_server_url %>jquery/validation/jquery.validationEngine.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript" src="<%= Mycrm::Application.config.staticfile_server_url %>jquery/jquery.ui.datepicker-zh-CN.js"></script>
+        <script type="text/javascript" src="<%= Mycrm::Application.config.staticfile_server_url %>jquery/jquery-ui-timepicker-addon.js"></script>
+        <script type="text/javascript" src="<%= Mycrm::Application.config.staticfile_server_url %>jquery/fullcalendar/fullcalendar.min.js"></script>
+        <script type="text/javascript" src="<%= Mycrm::Application.config.staticfile_server_url %>jquery/collapse/jquery.collapse.js"></script>
+        <script type="text/javascript" src="<%= Mycrm::Application.config.staticfile_server_url %>jquery/collapse/jquery.collapse_storage.js"></script>
+        <script type="text/javascript" src="<%= Mycrm::Application.config.staticfile_server_url %>jquery/collapse/jquery.collapse_cookie_storage.js"></script>
   
         <%= csrf_meta_tags %>
 	</head>
@@ -273,7 +273,7 @@
         	<div class="container_12">
             	<div class="grid_12">
                 	<!-- You can change the copyright line for your own -->
-                	<p>&copy; 2012. <a href="http://www.xiaoma.com" target="_blank" title="小马过河国际教育">小马过河国际教育</a>
+                	<p>&copy; 2012. <a href="#" target="_blank" title="小马过河国际教育">XXX公司</a>
                 		Powered by <a href="http://rubyonrails.org/" target="_blank">Ruby On Rails</a>
                 	</p>
         		</div>

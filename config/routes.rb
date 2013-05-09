@@ -1,5 +1,5 @@
 # encoding: utf-8
-Xmcrm::Application.routes.draw do
+Mycrm::Application.routes.draw do
 
   get "home/index"
   root :to => "home#index"

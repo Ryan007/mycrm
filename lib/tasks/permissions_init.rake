@@ -1,4 +1,4 @@
-namespace :xmcrm do
+namespace :Mycrm do
   desc "init permission for cancan"
   task :init => :environment do
     setup_actions_controllers_db
