@@ -28,13 +28,13 @@ set :repository,  "git@github.com:Ryan007/mycrm.git"
 set :scm, :git
 
 
-role :web, "ketty"                          # Your HTTP server, Apache/etc
-role :app, "ketty"                          # This may be the same as your `Web` server
-role :db,  "ketty", :primary => true # This is where Rails migrations will run
+role :web, "crm.cust.com"                          # Your HTTP server, Apache/etc
+role :app, "crm.cust.com"                          # This may be the same as your `Web` server
+role :db,  "crm.cust.com", :primary => true # This is where Rails migrations will run
 #role :db,  "your slave db-server here"
 # set :port, 22229
 set :use_sudo, true
-set :user, "ketty"    # 上传了ssh的public key
+set :user, "crm.cust.com"    # 上传了ssh的public key
 # set :web_user, "nobody"
 #set :password, "passwd"
 default_run_options[:pty] = true
