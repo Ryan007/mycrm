@@ -12,18 +12,10 @@
 	"buffers":
 	[
 		{
-			"file": "config/routes.rb",
-			"settings":
-			{
-				"buffer_size": 3101,
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "config/deploy.rb",
 			"settings":
 			{
-				"buffer_size": 2927,
+				"buffer_size": 2929,
 				"line_ending": "Unix"
 			}
 		}
@@ -64,9 +56,55 @@
 	},
 	"file_history":
 	[
+		"/Users/ryan007/xiaoma/mycrm/public/jquery/jquery_1.7.1.min.js",
+		"/Users/ryan007/xiaoma/mycrm/config/database.yml",
+		"/Users/ryan007/xiaoma/mycrm/app/views/layouts/application.html.erb",
+		"/Users/ryan007/xiaoma/mycrm/public/admin_style/style/styles.css",
+		"/Users/ryan007/xiaoma/mycrm/public/admin_style/style/theme-blue.css",
+		"/Users/ryan007/xiaoma/mycrm/app/views/home/index.html.erb",
+		"/Users/ryan007/xiaoma/mycrm/config/deploy.rb",
+		"/Users/ryan007/xiaoma/mycrm/app/views/admin/permissions/index.html.erb",
+		"/Users/ryan007/xiaoma/mycrm/app/views/admin/roles/index.html.erb",
+		"/Users/ryan007/xiaoma/mycrm/app/views/admin/users/index.html.erb",
+		"/Users/ryan007/xiaoma/mycrm/app/views/client/apply_colleages/index.html.erb",
+		"/Users/ryan007/xiaoma/mycrm/app/views/client/character_types/index.html.erb",
+		"/Users/ryan007/xiaoma/mycrm/app/views/client/exam_details/index.html.erb",
+		"/Users/ryan007/xiaoma/mycrm/app/views/client/exam_types/index.html.erb",
+		"/Users/ryan007/xiaoma/mycrm/app/views/client/exams/index.html.erb",
+		"/Users/ryan007/xiaoma/mycrm/app/views/client/info_notes/index.html.erb",
+		"/Users/ryan007/xiaoma/mycrm/app/views/client/infos/callcenter_index.html.erb",
+		"/Users/ryan007/xiaoma/mycrm/app/views/client/infos/cc_my.html.erb",
+		"/Users/ryan007/xiaoma/mycrm/app/views/client/infos/channel_my.html.erb",
+		"/Users/ryan007/xiaoma/mycrm/app/views/client/infos/index.html.erb",
+		"/Users/ryan007/xiaoma/mycrm/app/views/client/infos/search_info.html.erb",
+		"/Users/ryan007/xiaoma/mycrm/app/views/client/invations/index.html.erb",
+		"/Users/ryan007/xiaoma/mycrm/app/views/client/nsfms/index.html.erb",
+		"/Users/ryan007/xiaoma/mycrm/app/views/client/nssrs/index.html.erb",
+		"/Users/ryan007/xiaoma/mycrm/app/views/client/oscfs/index.html.erb",
+		"/Users/ryan007/xiaoma/mycrm/app/views/client/records/index.html.erb",
+		"/Users/ryan007/xiaoma/mycrm/app/views/client/session_types/index.html.erb",
+		"/Users/ryan007/xiaoma/mycrm/app/views/client/sessions/index.html.erb",
+		"/Users/ryan007/xiaoma/mycrm/app/views/client/training_experiences/index.html.erb",
+		"/Users/ryan007/xiaoma/mycrm/app/views/layouts/application.html.erb.old",
+		"/Users/ryan007/xiaoma/mycrm/app/views/marketing/channel_categories/index.html.erb",
+		"/Users/ryan007/xiaoma/mycrm/app/views/marketing/channel_infos/index.html.erb",
+		"/Users/ryan007/xiaoma/mycrm/config.ru",
+		"/Users/ryan007/xiaoma/mycrm/config/application.rb",
+		"/Users/ryan007/xiaoma/mycrm/config/environment.rb",
+		"/Users/ryan007/xiaoma/mycrm/config/environments/development.rb",
+		"/Users/ryan007/xiaoma/mycrm/config/environments/production.rb",
+		"/Users/ryan007/xiaoma/mycrm/config/environments/test.rb",
+		"/Users/ryan007/xiaoma/mycrm/config/initializers/secret_token.rb",
+		"/Users/ryan007/xiaoma/mycrm/config/initializers/session_store.rb",
+		"/Users/ryan007/xiaoma/mycrm/config/routes.rb",
+		"/Users/ryan007/xiaoma/mycrm/lib/tasks/permissions_init.rake",
+		"/Users/ryan007/xiaoma/mycrm/Rakefile",
+		"/Users/ryan007/xiaoma/mycrm/README.rdoc",
+		"/Users/ryan007/xiaoma/mycrm/xmcrm.sublime-workspace",
+		"/Users/ryan007/Library/Application Support/Sublime Text 2/Packages/GBK Encoding Support/tmp/info.css                %2FUsers%2Fryan007%2Fxiaoma%2Fmycrm%2Fpublic%2Finfo.css",
 		"/Users/ryan007/xiaoma/mycrm/Gemfile",
 		"/Users/ryan007/xiaoma/mock_exam/app/controllers/home_controller.rb",
-		"/Users/ryan007/xiaoma/Mycrm/Mycrm.sublime-project",
+		"/Users/ryan007/xiaoma/xmcrm/xmcrm.sublime-project",
 		"/Users/ryan007/xiaoma/mock_exam/app/views/users/index.html.erb",
 		"/Users/ryan007/xiaoma/mock_exam/spec/controllers/users_controller_spec.rb",
 		"/Users/ryan007/xiaoma/mock_exam/config/routes.rb",
@@ -106,17 +144,17 @@
 		"/Users/ryan007/xiaoma/simple_exam/app/views/admin/users/save_roles.html.erb",
 		"/Users/ryan007/xiaoma/simple_exam/app/models/user.rb",
 		"/Users/ryan007/xiaoma/simple_exam/app/models/role.rb",
-		"/Users/ryan007/xiaoma/Mycrm/config/routes.rb",
+		"/Users/ryan007/xiaoma/xmcrm/config/routes.rb",
 		"/Users/ryan007/xiaoma/simple_exam/app/views/admin/users/index.html.erb",
 		"/Users/ryan007/xiaoma/simple_exam/app/views/admin/users/show.html.erb",
-		"/Users/ryan007/xiaoma/Mycrm/spec/views/channel_categories/show.html.erb_spec.rb",
+		"/Users/ryan007/xiaoma/xmcrm/spec/views/channel_categories/show.html.erb_spec.rb",
 		"/Users/ryan007/xiaoma/simple_exam/app/controllers/users_controller_bak.rb",
-		"/Users/ryan007/xiaoma/Mycrm/app/controllers/admin/users_controller.rb",
-		"/Users/ryan007/xiaoma/Mycrm/app/models/user.rb",
-		"/Users/ryan007/xiaoma/Mycrm/app/models/role.rb",
+		"/Users/ryan007/xiaoma/xmcrm/app/controllers/admin/users_controller.rb",
+		"/Users/ryan007/xiaoma/xmcrm/app/models/user.rb",
+		"/Users/ryan007/xiaoma/xmcrm/app/models/role.rb",
 		"/Users/ryan007/xiaoma/simple_exam/app/views/options/index.html.erb",
-		"/Users/ryan007/xiaoma/Mycrm/app/views/admin/users/roles.html.erb",
-		"/Users/ryan007/xiaoma/Mycrm/app/views/admin/users/_form.html.erb",
+		"/Users/ryan007/xiaoma/xmcrm/app/views/admin/users/roles.html.erb",
+		"/Users/ryan007/xiaoma/xmcrm/app/views/admin/users/_form.html.erb",
 		"/Users/ryan007/xiaoma/simple_exam/app/views/admin/users/roles.rb",
 		"/Users/ryan007/xiaoma/simple_exam/config/routes.rb",
 		"/Users/ryan007/xiaoma/simple_exam/db/migrate/20130313088409_create_roles.rb",
@@ -124,9 +162,9 @@
 		"/Users/ryan007/xiaoma/simple_exam/app/controllers/admin/base_controller.rb",
 		"/Users/ryan007/xiaoma/simple_exam/app/views/admin/users/_form.html.erb",
 		"/Users/ryan007/xiaoma/simple_exam/app/views/users/index.html.erb",
-		"/Users/ryan007/xiaoma/Mycrm/app/controllers/admin/base_controller.rb",
+		"/Users/ryan007/xiaoma/xmcrm/app/controllers/admin/base_controller.rb",
 		"/Users/ryan007/xiaoma/simple_exam/app/controllers/users_controller.rb",
-		"/Users/ryan007/xiaoma/Mycrm/app/views/users/registrations/edit.html.erb",
+		"/Users/ryan007/xiaoma/xmcrm/app/views/users/registrations/edit.html.erb",
 		"/Users/ryan007/xiaoma/simple_exam/app/views/admin/users/untitled",
 		"/Users/ryan007/xiaoma/simple_exam/spec/requests/users_spec.rb",
 		"/Users/ryan007/xiaoma/simple_exam/config/initializers/devise.rb",
@@ -145,52 +183,7 @@
 		"/Library/WebServer/Documents/jQuery_demo/demo-01-supplied-mp3-pf.htm",
 		"/Library/WebServer/Documents/jQuery_demo/demo-05.htm",
 		"/Library/WebServer/Documents/jQuery_demo/demo-01-supplied-mp3-bm.htm",
-		"/Users/ryan007/xiaoma/listening/app/views/test/index.html.erb",
-		"/Users/ryan007/xiaoma/simple_exam/app/assets/javascripts/jquery.jplayer.min.js",
-		"/Users/ryan007/xiaoma/listening/public/jplayer/jquery.jplayer.min.js",
-		"/Users/ryan007/xiaoma/simple_exam/app/views/papers/assign_listening.html.erb",
-		"/Users/ryan007/xiaoma/simple_exam/app/views/listenings/_form.html.erb",
-		"/Users/ryan007/xiaoma/simple_exam/app/views/listenings/edit.html.erb",
-		"/Users/ryan007/xiaoma/simple_exam/app/views/listenings/index.html.erb",
-		"/Users/ryan007/xiaoma/simple_exam/app/assets/stylesheets/circle.player.css",
-		"/Users/ryan007/xiaoma/simple_exam/app/views/papers/assign_single.html.erb",
-		"/Users/ryan007/xiaoma/simple_exam/app/views/papers/assign_article.html.erb",
-		"/Users/ryan007/xiaoma/simple_exam/app/controllers/papers_controller.rb",
-		"/Users/ryan007/xiaoma/simple_exam/app/views/singles/_form.html.erb",
-		"/Users/ryan007/xiaoma/simple_exam/app/views/singles/new.html.erb",
-		"/Users/ryan007/xiaoma/simple_exam/app/views/singles/show.html.erb",
-		"/Users/ryan007/xiaoma/simple_exam/app/controllers/options_controller.rb",
-		"/Users/ryan007/xiaoma/simple_exam/app/views/singles/index.html.erb",
-		"/Users/ryan007/xiaoma/simple_exam/app/controllers/singles_controller.rb",
-		"/Users/ryan007/xiaoma/simple_exam/app/helpers/application_helper.rb",
-		"/Users/ryan007/xiaoma/open_source/jqplot/examples/funnelTest.html",
-		"/Users/ryan007/xiaoma/open_source/jqplot/examples/customPieTests.html",
-		"/Users/ryan007/Pictures/com.tencent.qq/new/test.html",
-		"/Users/ryan007/Downloads/Pie and Donut Charts   jqPlot.html",
-		"/Users/ryan007/Pictures/com.tencent.qq/new/js/jquery.jqplot.min.js",
-		"/Users/ryan007/Pictures/com.tencent.qq/new/js/jqplot.pieRenderer.min.js",
-		"/Users/ryan007/Pictures/com.tencent.qq/new/js/jqplot.donutRenderer.min.js",
-		"/Users/ryan007/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
-		"/Users/ryan007/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
-		"/Users/ryan007/Library/Application Support/Sublime Text 2/Packages/User/Default (OSX).sublime-keymap",
-		"/Users/ryan007/Library/Application Support/Sublime Text 2/Packages/Default/Default (OSX).sublime-keymap",
-		"/Users/ryan007/Pictures/com.tencent.qq/new/test",
-		"/Users/ryan007/xiaoma/simple_exam/app/views/options/_form.html.erb",
-		"/Users/ryan007/xiaoma/simple_exam/app/views/options/show.html.erb",
-		"/Users/ryan007/xiaoma/simple_exam/app/views/articles/index.html.erb",
-		"/Users/ryan007/xiaoma/simple_exam/app/views/questions/index.html.erb",
-		"/Users/ryan007/xiaoma/simple_exam/app/helpers/listenings_helper.rb",
-		"/Users/ryan007/xiaoma/simple_exam/app/helpers/singles_helper.rb",
-		"/Users/ryan007/xiaoma/simple_exam/app/views/questions/show.html.erb",
-		"/Users/ryan007/xiaoma/simple_exam/app/controllers/questions_controller.rb",
-		"/Users/ryan007/xiaoma/simple_exam/app/controllers/application_controller.rb",
-		"/Users/ryan007/xiaoma/simple_exam/app/models/single.rb",
-		"/Users/ryan007/xiaoma/xmadweb/app/views/results/show.html.erb",
-		"/Users/ryan007/xiaoma/simple_exam/app/models/option.rb",
-		"/Users/ryan007/xiaoma/xmadweb/app/models/result.rb",
-		"/Users/ryan007/xiaoma/simple_exam/app/controllers/articles_controller.rb",
-		"/Users/ryan007/xiaoma/simple_exam/app/assets/images/rails.png",
-		"/Users/ryan007/xiaoma/simple_exam/app/assets/javascripts/application.js"
+		"/Users/ryan007/xiaoma/listening/app/views/test/index.html.erb"
 	],
 	"find":
 	{
@@ -198,9 +191,10 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 93.0,
 		"where_history":
 		[
+			"/Users/ryan007/xiaoma/mycrm",
 			"/Users/ryan007/xiaoma/simple_exam/app/assets/images/circle.skin",
 			""
 		]
@@ -210,10 +204,13 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"logo",
+			"Xmcrm",
+			"ketty",
 			"crm.xiaoma.com",
-			"'1.9.3-p125@rails323_r193_Mycrm'",
-			"1.9.3-p125@rails323_r193_Mycrm",
-			"rails323_r193_Mycrm",
+			"'1.9.3-p125@rails323_r193_xmcrm'",
+			"1.9.3-p125@rails323_r193_xmcrm",
+			"rails323_r193_xmcrm",
 			"password:",
 			"name",
 			"roles",
@@ -243,6 +240,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"Mycrm",
 			"crm.cust.com",
 			"'1.9.3-p392@rails3213_crm'",
 			"\n'1.9.3-p392@rails3.2.13_crm'",
@@ -266,94 +264,23 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "config/routes.rb",
-					"settings":
-					{
-						"buffer_size": 3101,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"bh_regions":
-							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close"
-							],
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 2.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
 					"file": "config/deploy.rb",
 					"settings":
 					{
-						"buffer_size": 2927,
+						"buffer_size": 2929,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								920,
-								920
+								2074,
+								2074
 							]
 						],
 						"settings":
@@ -363,7 +290,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 18.0,
+						"translation.y": 547.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -412,6 +339,18 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"dep",
+				"config/deploy.rb"
+			],
+			[
+				"lay",
+				"app/views/layouts/application.html.erb"
+			],
+			[
+				"layo",
+				"app/views/layouts/application.html.erb"
+			],
 			[
 				"ge",
 				"Gemfile"
@@ -474,11 +413,11 @@
 			],
 			[
 				"roles.html",
-				"Mycrm/app/views/admin/users/roles.html.erb"
+				"xmcrm/app/views/admin/users/roles.html.erb"
 			],
 			[
 				"crmusercon",
-				"Mycrm/app/controllers/admin/users_controller.rb"
+				"xmcrm/app/controllers/admin/users_controller.rb"
 			],
 			[
 				"use",
@@ -486,7 +425,7 @@
 			],
 			[
 				"user_form",
-				"Mycrm/app/views/admin/users/_form.html.erb"
+				"xmcrm/app/views/admin/users/_form.html.erb"
 			],
 			[
 				"userinde",
@@ -498,11 +437,11 @@
 			],
 			[
 				"userscont",
-				"Mycrm/app/controllers/admin/users_controller.rb"
+				"xmcrm/app/controllers/admin/users_controller.rb"
 			],
 			[
 				"userind",
-				"Mycrm/app/views/users/registrations/edit.html.erb"
+				"xmcrm/app/views/users/registrations/edit.html.erb"
 			],
 			[
 				"usercont",
@@ -547,10 +486,6 @@
 			[
 				"listeningedi",
 				"simple_exam/app/views/listenings/edit.html.erb"
-			],
-			[
-				"lay",
-				"simple_exam/app/views/layouts/application.html.erb"
 			],
 			[
 				"listeningsho",
