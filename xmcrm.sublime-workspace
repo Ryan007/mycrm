@@ -12,10 +12,18 @@
 	"buffers":
 	[
 		{
-			"file": "config/deploy.rb",
+			"file": "db/schema.rb",
 			"settings":
 			{
-				"buffer_size": 2929,
+				"buffer_size": 11327,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/layouts/application.html.erb",
+			"settings":
+			{
+				"buffer_size": 15388,
 				"line_ending": "Unix"
 			}
 		}
@@ -56,13 +64,17 @@
 	},
 	"file_history":
 	[
+		"/Users/ryan007/xiaoma/mycrm/db/schema.rb",
+		"/Users/ryan007/xiaoma/mycrm/app/views/client/infos/_form.html.erb",
 		"/Users/ryan007/xiaoma/mycrm/public/jquery/jquery_1.7.1.min.js",
-		"/Users/ryan007/xiaoma/mycrm/config/database.yml",
+		"/Users/ryan007/xiaoma/mycrm/app/views/client/info_notes/_form.html.erb",
+		"/Users/ryan007/Library/Application Support/Sublime Text 2/Packages/GBK Encoding Support/tmp/info.css                %2FUsers%2Fryan007%2Fxiaoma%2Fmycrm%2Fpublic%2Finfo.css",
 		"/Users/ryan007/xiaoma/mycrm/app/views/layouts/application.html.erb",
-		"/Users/ryan007/xiaoma/mycrm/public/admin_style/style/styles.css",
 		"/Users/ryan007/xiaoma/mycrm/public/admin_style/style/theme-blue.css",
-		"/Users/ryan007/xiaoma/mycrm/app/views/home/index.html.erb",
 		"/Users/ryan007/xiaoma/mycrm/config/deploy.rb",
+		"/Users/ryan007/xiaoma/mycrm/config/database.yml",
+		"/Users/ryan007/xiaoma/mycrm/public/admin_style/style/styles.css",
+		"/Users/ryan007/xiaoma/mycrm/app/views/home/index.html.erb",
 		"/Users/ryan007/xiaoma/mycrm/app/views/admin/permissions/index.html.erb",
 		"/Users/ryan007/xiaoma/mycrm/app/views/admin/roles/index.html.erb",
 		"/Users/ryan007/xiaoma/mycrm/app/views/admin/users/index.html.erb",
@@ -101,7 +113,6 @@
 		"/Users/ryan007/xiaoma/mycrm/Rakefile",
 		"/Users/ryan007/xiaoma/mycrm/README.rdoc",
 		"/Users/ryan007/xiaoma/mycrm/xmcrm.sublime-workspace",
-		"/Users/ryan007/Library/Application Support/Sublime Text 2/Packages/GBK Encoding Support/tmp/info.css                %2FUsers%2Fryan007%2Fxiaoma%2Fmycrm%2Fpublic%2Finfo.css",
 		"/Users/ryan007/xiaoma/mycrm/Gemfile",
 		"/Users/ryan007/xiaoma/mock_exam/app/controllers/home_controller.rb",
 		"/Users/ryan007/xiaoma/xmcrm/xmcrm.sublime-project",
@@ -180,10 +191,7 @@
 		"/Users/ryan007/Downloads/jqPlot/jqPlot.html",
 		"/Users/ryan007/Pictures/com.tencent.qq/new/统计管理数据.html",
 		"/Users/ryan007/Pictures/com.tencent.qq/new/js_jplot/untitled",
-		"/Library/WebServer/Documents/jQuery_demo/demo-01-supplied-mp3-pf.htm",
-		"/Library/WebServer/Documents/jQuery_demo/demo-05.htm",
-		"/Library/WebServer/Documents/jQuery_demo/demo-01-supplied-mp3-bm.htm",
-		"/Users/ryan007/xiaoma/listening/app/views/test/index.html.erb"
+		"/Library/WebServer/Documents/jQuery_demo/demo-01-supplied-mp3-pf.htm"
 	],
 	"find":
 	{
@@ -204,6 +212,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"live",
 			"logo",
 			"Xmcrm",
 			"ketty",
@@ -264,33 +273,61 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "config/deploy.rb",
+					"file": "db/schema.rb",
 					"settings":
 					{
-						"buffer_size": 2929,
+						"buffer_size": 11327,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2074,
-								2074
+								10311,
+								10311
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/Ruby/Ruby.tmLanguage",
-							"tab_size": 2,
+							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 547.0,
+						"translation.y": 4612.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/views/layouts/application.html.erb",
+					"settings":
+					{
+						"buffer_size": 15388,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								13080,
+								13108
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3528.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -339,6 +376,14 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"clientinfofore",
+				"app/views/client/info_notes/_form.html.erb"
+			],
+			[
+				"la",
+				"app/views/layouts/application.html.erb"
+			],
 			[
 				"dep",
 				"config/deploy.rb"
@@ -430,10 +475,6 @@
 			[
 				"userinde",
 				"simple_exam/app/views/admin/users/index.html.erb"
-			],
-			[
-				"la",
-				"simple_exam/app/views/layouts/application.html.erb"
 			],
 			[
 				"userscont",
@@ -584,8 +625,16 @@
 		"selected_items":
 		[
 			[
+				"word",
+				"/Users/ryan007/xiaoma/word/word.sublime-project"
+			],
+			[
+				"wor",
+				"/Users/ryan007/xiaoma/word/word.sublime-project"
+			],
+			[
 				"mo",
-				"/Users/ryan007/src/mock_exam/mock_exam.sublime-project"
+				"/Users/ryan007/xiaoma/mock_exam/mock_exam.sublime-project"
 			],
 			[
 				"m",

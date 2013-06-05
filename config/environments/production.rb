@@ -65,8 +65,8 @@ Mycrm::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
   
-  config.host_url = "http://crm.xiaoma.com/"
-  config.staticfile_server_url = "http://crm.xiaoma.com/"
+  config.host_url = "http://crm.cust.com/"
+  config.staticfile_server_url = "http://crm.cust.com/"
   
   config.action_mailer.default_url_options = { :host => 'crm.xiaoma.com' }
   config.action_mailer.delivery_method = :smtp

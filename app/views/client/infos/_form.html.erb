@@ -30,24 +30,26 @@
         get_options($(this).attr("p"));
       });
   });
+
   function get_options(value){
-    $.ajax({
-      type: "get",
-      url: "/client/infos/get_city?city_id="+value,
-      success: function(data){
-        $("#info_city").html(data);
-        get_option1s(0);
-      }
-    })
+        $.ajax({
+          type: "get",
+          url: "/client/infos/get_city?city_id="+value,
+          success: function(data){
+            $("#info_city").html(data);
+            get_option1s(0);
+          }
+        })
    }
+
    function get_option1s(value){
-    $.ajax({
-      type: "get",
-      url: "<%= get_district_client_infos_path %>?district_id="+value,
-      success: function(data){
-        $("#info_district").html(data);
-      }
-    })
+        $.ajax({
+              type: "get",
+              url: "<%= get_district_client_infos_path %>?district_id="+value,
+              success: function(data){
+                $("#info_district").html(data);
+              }
+        })
     }
 </script>
 
